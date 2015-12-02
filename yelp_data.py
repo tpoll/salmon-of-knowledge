@@ -12,5 +12,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    for x in reviews:
-        print x

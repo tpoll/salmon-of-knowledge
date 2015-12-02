@@ -12,7 +12,6 @@ def main():
 
 
     json.dump(data, new)
-    print data
     new.close()
 
 
