@@ -2,13 +2,7 @@ import json
 import sys
 
 
-reviews = {}
 
-def main():
-    global reviews
-
+def getReviews():
     with open("reviews.json", 'rb') as f:
-        reviews = json.load(f)
-
-if __name__ == '__main__':
-    main()
+        return json.load(f)
