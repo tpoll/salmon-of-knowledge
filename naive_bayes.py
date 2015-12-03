@@ -32,29 +32,29 @@ class NaiveBayes(object):
     def __init__(self, vocab):
         self.postiveProbs = {}
         self.negativeProbs = {}
-        self.negativeReviews = 0
-        self.postiveReviews = 0
+        self.totalNegativeWords = 0
+        self.totalPostiveWords = 0
         self.positive = ImmutableSet([4, 5])
         self.negative = ImmutableSet([1, 2, 3])
         self.vocab = vocab
 
         
     def Train(self, training_set):
-        positive_counts = defaultdict(lambda: 1)
-        negative_counts = defaultdict(lambda: 1)
+        positiveCounts = defaultdict(lambda: 1)
+        negativeCounts = defaultdict(lambda: 1)
 
         for review in training_set:
             if review['stars'] in self.positive:
                 for word in review['text']:
-                    self.postiveReviews += 1
-                    positive_counts[word] += 1
+                    self.totalPostiveWords += 1
+                    positiveCounts[word] += 1
             else:
                 for word in review['text']:
-                    self.negativeReviews += 1
-                    negative_counts[word] += 1
+                    self.totalNegativeWords += 1
+                    negativeCounts[word] += 1
 
-        self.__buildLogProbs(positive_counts, self.postiveReviews, self.postiveProbs)
-        self.__buildLogProbs(negative_counts, self.negativeReviews, self.negativeProbs)
+        self.__buildLogProbs(positiveCounts, self.totalPostiveWords, self.postiveProbs)
+        self.__buildLogProbs(negativeCounts, self.totalNegativeWords, self.negativeProbs)
 
 
     def __buildLogProbs(self, counts, reviewTotal, probDict):
