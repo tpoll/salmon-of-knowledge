@@ -78,13 +78,14 @@ def main():
     total = 0.0
     right = 0.0
     reviews = getReviews()
-    vocab = buildVocab(reviews[0:8000])
-    training_set_prep = preProcess(reviews, vocab)
+    vocab = buildVocab(reviews)
+    training_set_prep = preProcess(reviews[2000:19999], vocab)
+    test_set_prep = preProcess(reviews[1:1999], vocab)
     naiveBayes = NaiveBayes(vocab)
     naiveBayes.Train(training_set_prep)
     
     #Test accuracy
-    for review in reviews[8001:9999]:
+    for review in test_set_prep:
         total += 1.0
         if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review):
             right += 1.0
