@@ -29,46 +29,69 @@ def preProcess(corpus, vocab):
 
 class NaiveBayes(object):
     """NaiveBayes for sentiment analysis"""
-    def __init__(self):
-        self.postive_probs = defaultdict(lambda: float('-inf'))
-        self.negative_probs = defaultdict(lambda: float('-inf'))
-        self.negative_reviews = 0
-        self.postive_reviews = 0
+    def __init__(self, vocab):
+        self.postiveProbs = {}
+        self.negativeProbs = {}
+        self.negativeReviews = 0
+        self.postiveReviews = 0
         self.positive = ImmutableSet([4, 5])
         self.negative = ImmutableSet([1, 2, 3])
+        self.vocab = vocab
 
         
     def Train(self, training_set):
-        positive_counts = defaultdict(int)
-        negative_counts = defaultdict(int)
+        positive_counts = defaultdict(lambda: 1)
+        negative_counts = defaultdict(lambda: 1)
 
         for review in training_set:
             if review['stars'] in self.positive:
-                self.postive_reviews += 1
                 for word in review['text']:
+                    self.postiveReviews += 1
                     positive_counts[word] += 1
             else:
-                self.negative_reviews += 1
                 for word in review['text']:
+                    self.negativeReviews += 1
                     negative_counts[word] += 1
 
-        self.__buildLogProbs(positive_counts, self.postive_reviews, self.postive_probs)
-        self.__buildLogProbs(negative_counts, self.negative_reviews, self.negative_probs)
+        self.__buildLogProbs(positive_counts, self.postiveReviews, self.postiveProbs)
+        self.__buildLogProbs(negative_counts, self.negativeReviews, self.negativeProbs)
 
 
     def __buildLogProbs(self, counts, reviewTotal, probDict):
-        for word, count in counts.iteritems():
-            probDict[word] = log(float(count) / float(reviewTotal))
+        for word in self.vocab:
+            probDict[word] = log(float(counts[word]) / float(reviewTotal))
 
+    def PredictPositive(self, sent):
+        p_positive = 0.0
+        p_negative = 0.0
 
+        for word in sent['text']:
+            p_positive += self.postiveProbs[word]
+            p_negative += self.negativeProbs[word]
+
+        if p_positive > p_negative:
+            return True
+        else:
+            return False
 
 def main():
+    total = 0.0
+    right = 0.0
     reviews = getReviews()
-    vocab = buildVocab(reviews)
+    vocab = buildVocab(reviews[0:8000])
     training_set_prep = preProcess(reviews, vocab)
-    naiveBayes = NaiveBayes()
+    naiveBayes = NaiveBayes(vocab)
     naiveBayes.Train(training_set_prep)
     
+    #Test accuracy
+    for review in reviews[8001:9999]:
+        total += 1.0
+        if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review):
+            right += 1.0
+        elif review['stars'] in naiveBayes.negative and not naiveBayes.PredictPositive(review):
+            right += 1.0
+
+    print ((right/total) * 100)
 
 
 if __name__ == '__main__':
