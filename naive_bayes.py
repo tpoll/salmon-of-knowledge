@@ -79,8 +79,8 @@ def main():
     right = 0.0
     reviews = getReviews()
     vocab = buildVocab(reviews)
-    training_set_prep = preProcess(reviews[2000:19999], vocab)
-    test_set_prep = preProcess(reviews[1:1999], vocab)
+    training_set_prep = preProcess(reviews[0:80000], vocab)
+    test_set_prep = preProcess(reviews[80001:99999], vocab)
     naiveBayes = NaiveBayes(vocab)
     naiveBayes.Train(training_set_prep)
     
