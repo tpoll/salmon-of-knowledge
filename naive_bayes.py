@@ -38,11 +38,13 @@ class NaiveBayes(object):
         self.negative = ImmutableSet([1, 2, 3])
         self.vocab = vocab
 
-        
+    
     def Train(self, training_set):
         positiveCounts = defaultdict(lambda: 1)
         negativeCounts = defaultdict(lambda: 1)
 
+        # get positive and negative counts
+        # for each word using review ratings.
         for review in training_set:
             if review['stars'] in self.positive:
                 for word in review['text']:
@@ -53,6 +55,7 @@ class NaiveBayes(object):
                     self.totalNegativeWords += 1
                     negativeCounts[word] += 1
 
+        # use counts to get positive and negative probabilities for each word
         self.__buildLogProbs(positiveCounts, self.totalPostiveWords, self.postiveProbs)
         self.__buildLogProbs(negativeCounts, self.totalNegativeWords, self.negativeProbs)
 
@@ -60,7 +63,7 @@ class NaiveBayes(object):
     def __buildLogProbs(self, counts, reviewTotal, probDict):
         for word in self.vocab:
             probDict[word] = log(float(counts[word]) / float(reviewTotal))
-
+            
     def PredictPositive(self, sent):
         p_positive = 0.0
         p_negative = 0.0
