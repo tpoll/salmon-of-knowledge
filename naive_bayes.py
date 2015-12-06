@@ -1,30 +1,8 @@
-from yelp_data import getReviews
+import yelp_data
 from collections import defaultdict
 from math import log
 from sets import ImmutableSet
 import json
-
-unknown_token = 'UNK'
-
-def buildVocab(corpus):
-    seen = set()
-    vocabulary = set()
-    for review in corpus:
-        for word in review['text']:
-            if word in seen:
-                vocabulary.add(word)
-            else:
-                seen.add(word)
-    vocabulary.add(unknown_token)
-
-    return vocabulary
-
-def preProcess(corpus, vocab):
-    for i, review in enumerate(corpus):
-        for j, word in enumerate(review['text']):
-            if word not in vocab:
-                corpus[i]['text'][j] = unknown_token
-    return corpus
 
 
 class NaiveBayes(object):
@@ -80,10 +58,12 @@ class NaiveBayes(object):
 def main():
     total = 0.0
     right = 0.0
-    reviews = getReviews()
-    vocab = buildVocab(reviews)
-    training_set_prep = preProcess(reviews[0:80000], vocab)
-    test_set_prep = preProcess(reviews[80001:99999], vocab)
+    reviews = yelp_data.getReviews()
+    training_set = reviews[0:5000]
+    test_set     = reviews[5001:10000]
+    vocab = yelp_data.buildVocab(training_set)
+    training_set_prep = yelp_data.preProcess(training_set, vocab)
+    test_set_prep = yelp_data.preProcess(test_set, vocab)
     naiveBayes = NaiveBayes(vocab)
     naiveBayes.Train(training_set_prep)
     
