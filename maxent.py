@@ -11,44 +11,47 @@ positive_class = "positive"
 negative_class = "negative"
 
 class Maxent(object):
-	def __init__(self, vocab):
-		self.vocab    = vocab
-		self.features = {}
+    def __init__(self, vocab):
+        self.vocab    = vocab
+        self.features = {}
 
-	def buildFeatures(self):
-		for i, word in enumerate(self.vocab):
-			self.features[word] = i
+    def buildFeatures(self):
+        for i, word in enumerate(self.vocab):
+            self.features[word] = i
 
-	def buildData(self, dataset):
-		matrix = [[0]*len(self.features) for x in xrange(len(dataset))]
-		for i, sent in enumerate(dataset):
-			for word in sent["text"]:
-				matrix[i][self.features[word]] = 1
-		return matrix
+    def buildData(self, dataset):
+        matrix = [[] for x in xrange(len(dataset))]
+        for i, sent in enumerate(dataset):
+            for word in sent["text"]:
+                matrix[i].append(self.features[word])
+        return matrix
 
-	def getSentiment(self, sentence):
-		if sentence["stars"] >= 4:
-			return str(len(self.features)) + " positive"
-		else:
-			return str(len(self.features)) + " negative"
+    def getSentiment(self, sentence):
+        if sentence["stars"] >= 4:
+            return str(len(self.features)) + " positive"
+        else:
+            return str(len(self.features)) + " negative"
 
-	def buildARFFfile(self, dataset, filename):
+    def buildARFFfile(self, dataset, filename):
+        num_features = len(self.features)
+        with codecs.open(filename, 'wb', encoding='utf-8') as f:
+            f.write("@relation maxent\n\n")
+            features = sorted(self.features.items(), key=operator.itemgetter(1))
+            for feature in features:
+                f.write("@attribute \"" + feature[0] + "\" {0, 1}\n")
+            f.write("@attribute __sentiment__ {positive, negative}\n\n")
+            f.write("@data\n")
+            dataMatrix = self.buildData(dataset)
+            for i, sent in enumerate(dataMatrix):
+                f.write("{")
+                sent.sort()
+                for feature in sent:
+                    f.write(str(feature) + " " + str(1) + ",")
+                f.write(self.getSentiment(dataset[i]) + "}\n")
 
-		with codecs.open(filename, 'wb', encoding='utf-8') as f:
-			f.write("@relation maxent\n\n")
-			features = sorted(self.features.items(), key=operator.itemgetter(1))
-			for feature in features:
-				f.write("@attribute \"" + feature[0] + "\" {0, 1}\n")
-			f.write("@attribute __sentiment__ {positive, negative}\n\n")
-			f.write("@data\n")
-			dataMatrix = self.buildData(dataset)
-			for i, sent in enumerate(dataMatrix):
-				f.write("{")
-				for j, feature in enumerate(sent):
-					if feature:
-						f.write(str(j) + " " + str(feature) + ",")
-				f.write(self.getSentiment(dataset[i]) + "}\n")
-			
+
+
+            
 
 def main():
     reviews = yelp_data.getReviews()
