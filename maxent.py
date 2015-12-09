@@ -50,9 +50,6 @@ class Maxent(object):
                 f.write(self.getSentiment(dataset[i]) + "}\n")
 
 
-
-            
-
 def main():
     reviews = yelp_data.getReviews()
     training_set = reviews[0:5000]
