@@ -28,9 +28,9 @@ class Maxent(object):
 
 	def getSentiment(self, sentence):
 		if sentence["stars"] >= 4:
-			return "positive"
+			return str(len(self.features)) + " positive"
 		else:
-			return "negative"
+			return str(len(self.features)) + " negative"
 
 	def buildARFFfile(self, dataset, filename):
 
@@ -43,10 +43,11 @@ class Maxent(object):
 			f.write("@data\n")
 			dataMatrix = self.buildData(dataset)
 			for i, sent in enumerate(dataMatrix):
-				for feature in sent:
-					f.write(str(feature) + ",")
-				f.write(self.getSentiment(dataset[i]) + "\n")
-
+				f.write("{")
+				for j, feature in enumerate(sent):
+					if feature:
+						f.write(str(j) + " " + str(feature) + ",")
+				f.write(self.getSentiment(dataset[i]) + "}\n")
 			
 
 def main():
