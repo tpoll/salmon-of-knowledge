@@ -20,10 +20,10 @@ class Maxent(object):
             self.features[word] = i
 
     def buildData(self, dataset):
-        matrix = [[] for x in xrange(len(dataset))]
+        matrix = [defaultdict(int) for x in xrange(len(dataset))]
         for i, sent in enumerate(dataset):
             for word in sent["text"]:
-                matrix[i].append(self.features[word])
+                matrix[i][self.features[word]] += 1
         return matrix
 
     def getSentiment(self, sentence):
@@ -38,15 +38,14 @@ class Maxent(object):
             f.write("@relation maxent\n\n")
             features = sorted(self.features.items(), key=operator.itemgetter(1))
             for feature in features:
-                f.write("@attribute \"" + feature[0] + "\" {0, 1}\n")
+                f.write("@attribute \"" + feature[0] + "\" NUMERIC\n")
             f.write("@attribute __sentiment__ {positive, negative}\n\n")
             f.write("@data\n")
             dataMatrix = self.buildData(dataset)
             for i, sent in enumerate(dataMatrix):
                 f.write("{")
-                sent.sort()
-                for feature in sent:
-                    f.write(str(feature) + " " + str(1) + ",")
+                for feature in sorted(sent.iteritems()):
+                    f.write(str(feature[0]) + " " + str(feature[1]) + ",")
                 f.write(self.getSentiment(dataset[i]) + "}\n")
 
 
