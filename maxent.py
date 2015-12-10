@@ -2,6 +2,7 @@ import yelp_data
 import operator
 import codecs
 from collections import defaultdict
+from collections import Counter
 from math import log
 from sets import ImmutableSet
 import json
@@ -19,11 +20,25 @@ class Maxent(object):
         for i, word in enumerate(self.vocab):
             self.features[word] = i
 
+    def buildNormalizedFeatures(self, dataset):
+        counts = defaultdict(int)
+
+        for review in dataset:
+            for word in review['text']:
+                 counts[word] += 1
+
+        counter = 0
+        for word, count in counts.iteritems():
+            if count > 70:
+                self.features[word] = counter
+                counter += 1
+
     def buildData(self, dataset):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
         for i, sent in enumerate(dataset):
             for word in sent["text"]:
-                matrix[i][self.features[word]] += 1
+                if word in self.features:
+                    matrix[i][self.features[word]] += 1
         return matrix
 
     def getSentiment(self, sentence):
@@ -51,13 +66,14 @@ class Maxent(object):
 
 def main():
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10000]
+    training_set = reviews[0:1000]
+    test_set     = reviews[1001:2000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     me = Maxent(vocab)
-    me.buildFeatures()
+    me.buildNormalizedFeatures(training_set_prep)
+    # me.buildFeatures()
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff")
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff")
 
