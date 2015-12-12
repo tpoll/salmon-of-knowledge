@@ -1,21 +1,25 @@
 import json
 import sys
+from collections import defaultdict
+
 
 unknown_token = 'UNK'
 dont_include = set([",", "\n"])
 
 def buildVocab(corpus):
-    seen = set()
-    vocabulary = set()
+    counts = defaultdict(int)
+    vocab = set()
     for review in corpus:
         for word in review['text']:
-            if word in seen and word not in dont_include:
-                vocabulary.add(word)
-            else:
-                seen.add(word)
-    vocabulary.add(unknown_token)
+             counts[word] += 1
 
-    return vocabulary
+    for word, count in counts.iteritems():
+        if count > 5:
+            vocab.add(word)
+
+    vocab.add(unknown_token)
+    return vocab
+
 
 def preProcess(corpus, vocab):
     for i, review in enumerate(corpus):

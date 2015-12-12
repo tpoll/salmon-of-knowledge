@@ -40,7 +40,7 @@ class NaiveBayes(object):
 
     def __buildLogProbs(self, counts, reviewTotal, probDict):
         for word in self.vocab:
-            probDict[word] = log(float(counts[word]) / float(reviewTotal))
+            probDict[word] = log(float(counts[word]) / (float(reviewTotal) + len(self.vocab)))
             
     def PredictPositive(self, sent):
         p_positive = 0.0

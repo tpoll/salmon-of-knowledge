@@ -12,24 +12,15 @@ positive_class = "positive"
 negative_class = "negative"
 
 class Maxent(object):
-    def __init__(self, vocab):
+    def __init__(self, vocab, stopwords):
         self.vocab    = vocab
+        self.stopwords = stopwords
         self.features = {}
 
     def buildFeatures(self):
-        for i, word in enumerate(self.vocab):
-            self.features[word] = i
-
-    def buildNormalizedFeatures(self, dataset):
-        counts = defaultdict(int)
-
-        for review in dataset:
-            for word in review['text']:
-                 counts[word] += 1
-
         counter = 0
-        for word, count in counts.iteritems():
-            if count > 5:
+        for word in self.vocab:
+            if word not in self.stopwords:
                 self.features[word] = counter
                 counter += 1
 
@@ -67,13 +58,12 @@ def main():
     reviews = yelp_data.getReviews()
     training_set = reviews[0:1000]
     test_set     = reviews[1001:2000]
-    print yelp_data.getStopWords()
+    stopwords = set(yelp_data.getStopWords())
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
-    me = Maxent(vocab)
-    me.buildNormalizedFeatures(training_set_prep)
-    # me.buildFeatures()
+    me = Maxent(vocab, stopwords)
+    me.buildFeatures()
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff")
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff")
 
