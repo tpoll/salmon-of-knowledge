@@ -2,6 +2,8 @@ import json
 import sys
 
 unknown_token = 'UNK'
+start_token   = '<S>'
+end_token     = '</S>'
 dont_include = set([",", "\n"])
 
 def buildVocab(corpus):
@@ -14,7 +16,6 @@ def buildVocab(corpus):
             else:
                 seen.add(word)
     vocabulary.add(unknown_token)
-
     return vocabulary
 
 def preProcess(corpus, vocab):
@@ -23,6 +24,16 @@ def preProcess(corpus, vocab):
             if word not in vocab:
                 corpus[i]['text'][j] = unknown_token
     return corpus
+
+def preProcessN(corpus, vocab, N):
+    processed = preProcess(corpus, vocab)
+    for review in processed:
+
+        for i in range(N - 1):
+            review['text'].insert(0, start_token)
+            review['text'].append(end_token)
+
+    return processed
 
 def getReviews():
     with open("reviews.json", 'rb') as f:
