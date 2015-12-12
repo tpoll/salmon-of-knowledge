@@ -27,3 +27,7 @@ def preProcess(corpus, vocab):
 def getReviews():
     with open("reviews.json", 'rb') as f:
         return json.load(f)
+
+def getStopWords():
+    with open("stopwords.txt", 'rb') as f:
+        return [x.strip('\n') for x in f.readlines()]
