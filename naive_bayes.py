@@ -10,8 +10,6 @@ class NaiveBayes(object):
     def __init__(self, vocab, stopwords):
         self.positiveCounts = defaultdict(lambda: defaultdict(lambda: 1))
         self.negativeCounts = defaultdict(lambda: defaultdict(lambda: 1))
-        self.negativeNgrams = defaultdict(lambda: len(vocab))
-        self.positiveNgrams = defaultdict(lambda: len(vocab))
         self.stopwords = stopwords
         self.positive = ImmutableSet([4, 5])
         self.negative = ImmutableSet([1, 2, 3])
@@ -19,6 +17,9 @@ class NaiveBayes(object):
 
     
     def Train(self, training_set, nGram=1):
+
+        self.negativeNgrams = defaultdict(lambda: 1 + yelp_data.posVocabLen(self.vocab, training_set))
+        self.positiveNgrams = defaultdict(lambda: 1 + yelp_data.negVocabLen(self.vocab, training_set))
 
         for N in range(1, nGram + 1):
 

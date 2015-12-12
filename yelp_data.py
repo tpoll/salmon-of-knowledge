@@ -1,12 +1,15 @@
 import json
 import sys
 from collections import defaultdict
+from sets import ImmutableSet
 
 
 unknown_token = 'UNK'
 start_token   = '<S>'
 end_token     = '</S>'
 dont_include = set([",", "\n"])
+positive = ImmutableSet([4, 5])
+negative = ImmutableSet([1, 2, 3])
 
 def buildVocab(corpus):
     counts = defaultdict(int)
@@ -20,8 +23,33 @@ def buildVocab(corpus):
             vocab.add(word)
 
     vocab.add(unknown_token)
+    vocab.add(start_token)
+    vocab.add(end_token)
+
     return vocab
 
+def posVocabLen(vocab, corpus):
+    used = set()
+    length = 0
+    for review in corpus:
+        if review['stars'] in positive:
+            for word in review['text']:
+                if word not in used:
+                    used.add(word)
+                    length += 1
+    return length
+
+
+def negVocabLen(vocab, corpus):
+    used = set()
+    length = 0
+    for review in corpus:
+        if review['stars'] in negative:
+            for word in review['text']:
+                if word not in used:
+                    used.add(word)
+                    length += 1
+    return length
 
 def preProcess(corpus, vocab):
     for i, review in enumerate(corpus):
