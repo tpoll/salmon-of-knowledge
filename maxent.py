@@ -58,7 +58,7 @@ def main():
     reviews = yelp_data.getReviews()
     training_set = reviews[0:1000]
     test_set     = reviews[1001:2000]
-    stopwords = set(yelp_data.getStopWords())
+    stopwords = yelp_data.getStopWords()
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)

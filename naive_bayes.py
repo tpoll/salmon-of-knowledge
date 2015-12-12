@@ -7,7 +7,8 @@ import json
 
 class NaiveBayes(object):
     """NaiveBayes for sentiment analysis"""
-    def __init__(self, vocab):
+    def __init__(self, vocab, stopwords):
+        self.stopwords = stopwords
         self.postiveProbs = {}
         self.negativeProbs = {}
         self.totalNegativeWords = 0
@@ -47,8 +48,9 @@ class NaiveBayes(object):
         p_negative = 0.0
 
         for word in sent['text']:
-            p_positive += self.postiveProbs[word]
-            p_negative += self.negativeProbs[word]
+            if word not in self.stopwords:
+                p_positive += self.postiveProbs[word]
+                p_negative += self.negativeProbs[word]
 
         if p_positive > p_negative:
             return True
@@ -62,9 +64,10 @@ def main():
     training_set = reviews[0:1000]
     test_set     = reviews[1001:2000]
     vocab = yelp_data.buildVocab(training_set)
+    stopwords = yelp_data.getStopWords()
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
-    naiveBayes = NaiveBayes(vocab)
+    naiveBayes = NaiveBayes(vocab, stopwords)
     naiveBayes.Train(training_set_prep)
     
     #Test accuracy

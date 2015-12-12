@@ -34,4 +34,4 @@ def getReviews():
 
 def getStopWords():
     with open("stopwords.txt", 'rb') as f:
-        return [x.strip('\n') for x in f.readlines()]
+        return set([x.strip('\n') for x in f.readlines()])
