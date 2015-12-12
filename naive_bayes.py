@@ -7,11 +7,12 @@ import json
 
 class NaiveBayes(object):
     """NaiveBayes for sentiment analysis"""
-    def __init__(self, vocab):
+    def __init__(self, vocab, stopwords):
         self.positiveCounts = defaultdict(lambda: defaultdict(lambda: 1))
         self.negativeCounts = defaultdict(lambda: defaultdict(lambda: 1))
         self.negativeNgrams = defaultdict(lambda: len(vocab))
         self.positiveNgrams = defaultdict(lambda: len(vocab))
+        self.stopwords = stopwords
         self.positive = ImmutableSet([4, 5])
         self.negative = ImmutableSet([1, 2, 3])
         self.vocab = vocab
@@ -27,7 +28,6 @@ class NaiveBayes(object):
                 if review['stars'] in self.positive:
                     for i, word in enumerate(review['text'][nGram - N:]):
                         if word is not "</S>":
-
                             gram = tuple(review['text'][i - N:i])
                             self.positiveNgrams[N] += 1
                             self.positiveCounts[N][gram] += 1
@@ -64,8 +64,11 @@ def main():
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
-    naiveBayes = NaiveBayes(vocab)
+    stopwords = yelp_data.getStopWords()
+    naiveBayes = NaiveBayes(vocab, stopwords)
     naiveBayes.Train(training_set_prep, maxN)
+    
+
     
     #Test accuracy
     total = 0.0
