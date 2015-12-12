@@ -29,7 +29,7 @@ class Maxent(object):
 
         counter = 0
         for word, count in counts.iteritems():
-            if count > 70:
+            if count > 60:
                 self.features[word] = counter
                 counter += 1
 
@@ -63,11 +63,10 @@ class Maxent(object):
                     f.write(str(feature[0]) + " " + str(feature[1]) + ",")
                 f.write(self.getSentiment(dataset[i]) + "}\n")
 
-
 def main():
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:1000]
-    test_set     = reviews[1001:2000]
+    training_set = reviews[0:10000]
+    test_set     = reviews[10001:20000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
