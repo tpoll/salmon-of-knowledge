@@ -59,8 +59,8 @@ def main():
     total = 0.0
     right = 0.0
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:10000]
-    test_set     = reviews[10001:20000]
+    training_set = reviews[0:1000]
+    test_set     = reviews[1001:2000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
@@ -76,6 +76,7 @@ def main():
             right += 1.0
 
     print ((right/total) * 100)
+
 
 if __name__ == '__main__':
     main()
