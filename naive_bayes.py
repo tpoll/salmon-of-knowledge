@@ -28,28 +28,33 @@ class NaiveBayes(object):
             for review in training_set:
                 if review['stars'] in self.positive:
                     for i, word in enumerate(review['text'][nGram - N:]):
-                        if word is not "</S>":
+                        if word is not "</S>" and word is not "<S>":
                             gram = tuple(review['text'][i - N:i])
                             self.positiveNgrams[N] += 1
                             self.positiveCounts[N][gram] += 1
                 else:
                     for i, word in enumerate(review['text'][nGram - N:]):
-                        if word is not "</S>":
+                        if word is not "</S>" and word is not "<S>":
                             gram = tuple(review['text'][i - N:i])
                             self.negativeNgrams[N] += 1
                             self.negativeCounts[N][gram] += 1
     
-    # predict probability of positive using linear interpolation            
+    # predict probability of positive using weighted linear interpolation            
     def PredictPositive(self, review, maxN, weights):
         p_positive = 0.0
         p_negative = 0.0
 
         for N in range(1, maxN + 1):
             for i, word in enumerate(review['text'][maxN - N:]):
-                if word is not "</S>":
+                if word is not "</S>" and word is not "<S>":
                     gram = tuple(review['text'][i - N:i])
-                    p_negative += weights[N - 1] * log(float(self.negativeCounts[N][gram]) / float(self.negativeNgrams[N]))
-                    p_positive += weights[N - 1] * log(float(self.positiveCounts[N][gram]) / float(self.positiveNgrams[N]))
+                    if len(gram) >= 1:
+                        if N == 1:
+                            # p_negative += weights[N - 1] * log(float(self.negativeCounts[N][gram]) / float(self.negativeCounts[N-1][gram[0]]))
+                            # p_positive += weights[N - 1] * log(float(self.positiveCounts[N][gram]) / float(self.positiveCounts[N-1][gram[0]]))
+                        # else:
+                            p_negative += log(float(self.negativeCounts[N][gram]) / float(self.negativeNgrams[N]))
+                            p_positive += log(float(self.positiveCounts[N][gram]) / float(self.positiveNgrams[N]))
 
         if p_positive > p_negative:
             return True
@@ -58,10 +63,12 @@ class NaiveBayes(object):
 
 def main():
 
-    maxN = 3
+    maxN = 2
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:50000]
-    test_set     = reviews[50001:100001]
+    training_set = reviews[0:5000]
+    test_set     = reviews[5001:10001]
+    # training_set = reviews[0:50000]
+    # test_set     = reviews[50001:100001]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
