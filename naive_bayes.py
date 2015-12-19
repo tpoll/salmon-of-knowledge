@@ -38,23 +38,36 @@ class NaiveBayes(object):
                             gram = tuple(review['text'][i - N:i])
                             self.negativeNgrams[N] += 1
                             self.negativeCounts[N][gram] += 1
+
+    def __fuckingStupidBackoff(self, ngram, n, positive):
+        alpha = 0.4
+        if positive:
+            gramCounts = self.positiveCounts
+            total = self.positiveNgrams
+        else:
+            gramCounts = self.negativeCounts
+            total = self.negativeNgrams
+        if n > 1:
+            if gramCounts[n][ngram] > 8:
+                return log(float(gramCounts[n][ngram]) / float(gramCounts[n-1][ngram[0:n-1]]))
+            else:
+                return log(alpha) + self.__fuckingStupidBackoff(ngram[0:n-1], n-1, positive)
+        else:
+            return log(float(gramCounts[n][ngram]) / float(total[n]))
     
     # predict probability of positive using weighted linear interpolation            
     def PredictPositive(self, review, maxN, weights):
         p_positive = 0.0
         p_negative = 0.0
 
-        for N in range(1, maxN + 1):
-            for i, word in enumerate(review['text'][maxN - N:]):
-                if word is not "</S>" and word is not "<S>":
-                    gram = tuple(review['text'][i - N:i])
-                    if len(gram) >= 1:
-                        if N == 1:
-                            # p_negative += weights[N - 1] * log(float(self.negativeCounts[N][gram]) / float(self.negativeCounts[N-1][gram[0]]))
-                            # p_positive += weights[N - 1] * log(float(self.positiveCounts[N][gram]) / float(self.positiveCounts[N-1][gram[0]]))
-                        # else:
-                            p_negative += log(float(self.negativeCounts[N][gram]) / float(self.negativeNgrams[N]))
-                            p_positive += log(float(self.positiveCounts[N][gram]) / float(self.positiveNgrams[N]))
+        for i, word in enumerate(review['text'][maxN - 1:]):
+            gram = tuple(review['text'][i-maxN:i])
+            positive = 0.0
+            negative = 0.0
+            for n in range(maxN, 1, -1):
+                top = gram[0:n]
+                p_positive += self.__fuckingStupidBackoff(top, n, True)
+                p_negative += self.__fuckingStupidBackoff(top, n, False)
 
         if p_positive > p_negative:
             return True
@@ -63,12 +76,10 @@ class NaiveBayes(object):
 
 def main():
 
-    maxN = 2
+    maxN = 3
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10001]
-    # training_set = reviews[0:50000]
-    # test_set     = reviews[50001:100001]
+    training_set = reviews[0:50000]
+    test_set     = reviews[50001:100001]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
@@ -76,12 +87,9 @@ def main():
     naiveBayes = NaiveBayes(vocab, stopwords)
     naiveBayes.Train(training_set_prep, maxN)
     
-
-    
     #Test accuracy
     total = 0.0
     right = 0.0
-    interpWeights = [.25, .70, .05]
     for review in test_set_prep:
         total += 1.0
         if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review, maxN, interpWeights):
