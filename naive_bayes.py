@@ -38,18 +38,37 @@ class NaiveBayes(object):
                             gram = tuple(review['text'][i - N:i])
                             self.negativeNgrams[N] += 1
                             self.negativeCounts[N][gram] += 1
+
+    def __fuckingStupidBackoff(self, ngram, n, positive):
+        alpha = 0.4
+        if positive:
+            gramCounts = self.positiveCounts
+            total = self.positiveNgrams
+        else:
+            gramCounts = self.negativeCounts
+            total = self.negativeNgrams
+        if n > 1:
+            if gramCounts[n][ngram] > 8:
+                return log(float(gramCounts[n][ngram]) / float(gramCounts[n-1][ngram[0:n-1]]))
+            else:
+                return log(alpha) + self.__fuckingStupidBackoff(ngram[0:n-1], n-1, positive)
+        else:
+            return log(float(gramCounts[n][ngram]) / float(total[n]))
     
     # predict probability of positive using linear interpolation            
-    def PredictPositive(self, review, maxN, weights):
+    def PredictPositive(self, review, maxN):
         p_positive = 0.0
         p_negative = 0.0
 
-        for N in range(1, maxN + 1):
-            for i, word in enumerate(review['text'][maxN - N:]):
-                if word is not "</S>":
-                    gram = tuple(review['text'][i - N:i])
-                    p_negative += weights[N - 1] * log(float(self.negativeCounts[N][gram]) / float(self.negativeNgrams[N]))
-                    p_positive += weights[N - 1] * log(float(self.positiveCounts[N][gram]) / float(self.positiveNgrams[N]))
+
+        for i, word in enumerate(review['text'][maxN - 1:]):
+            gram = tuple(review['text'][i-maxN:i])
+            positive = 0.0
+            negative = 0.0
+            for n in range(maxN, 1, -1):
+                top = gram[0:n]
+                p_positive += self.__fuckingStupidBackoff(top, n, True)
+                p_negative += self.__fuckingStupidBackoff(top, n, False)
 
         if p_positive > p_negative:
             return True
@@ -69,17 +88,14 @@ def main():
     naiveBayes = NaiveBayes(vocab, stopwords)
     naiveBayes.Train(training_set_prep, maxN)
     
-
-    
     #Test accuracy
     total = 0.0
     right = 0.0
-    interpWeights = [.25, .70, .05]
     for review in test_set_prep:
         total += 1.0
-        if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review, maxN, interpWeights):
+        if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review, maxN):
             right += 1.0
-        elif review['stars'] in naiveBayes.negative and not naiveBayes.PredictPositive(review, maxN, interpWeights):
+        elif review['stars'] in naiveBayes.negative and not naiveBayes.PredictPositive(review, maxN):
             right += 1.0
 
     print ((right/total) * 100)
