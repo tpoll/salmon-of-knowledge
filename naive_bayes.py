@@ -39,7 +39,7 @@ class NaiveBayes(object):
                             self.negativeNgrams[N] += 1
                             self.negativeCounts[N][gram] += 1
 
-    def __fuckingStupidBackoff(self, ngram, n, positive):
+    def __stupidBackoff(self, ngram, n, positive):
         alpha = 0.4
         if positive:
             gramCounts = self.positiveCounts
@@ -55,7 +55,7 @@ class NaiveBayes(object):
         else:
             return log(float(gramCounts[n][ngram]) / float(total[n]))
     
-    
+
     def PredictPositive(self, review, maxN):
         p_positive = 0.0
         p_negative = 0.0
