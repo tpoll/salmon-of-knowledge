@@ -59,12 +59,9 @@ class NaiveBayes(object):
     def PredictPositive(self, review, maxN):
         p_positive = 0.0
         p_negative = 0.0
-
-
+        
         for i, word in enumerate(review['text'][maxN - 1:]):
             gram = tuple(review['text'][i-maxN:i])
-            positive = 0.0
-            negative = 0.0
             for n in range(maxN, 1, -1):
                 top = gram[0:n]
                 p_positive += self.__fuckingStupidBackoff(top, n, True)
