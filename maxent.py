@@ -56,8 +56,8 @@ class Maxent(object):
 
 def main():
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:1000]
-    test_set     = reviews[1001:2000]
+    training_set = reviews[0:20000]
+    test_set     = reviews[20001:40000]
     stopwords = yelp_data.getStopWords()
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
