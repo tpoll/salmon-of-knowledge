@@ -56,7 +56,7 @@ class NaiveBayes(object):
             return log(float(gramCounts[n][ngram]) / float(total[n]))
     
     # predict probability of positive using weighted linear interpolation            
-    def PredictPositive(self, review, maxN, weights):
+    def PredictPositive(self, review, maxN):
         p_positive = 0.0
         p_negative = 0.0
 
@@ -78,26 +78,42 @@ def main():
 
     maxN = 3
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:50000]
-    test_set     = reviews[50001:100001]
+    training_set = reviews[0:5000]
+    test_set     = reviews[5001:10001]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
     stopwords = yelp_data.getStopWords()
     naiveBayes = NaiveBayes(vocab, stopwords)
+
+    print "----------------------------------"
+    print "Sentiment analysis of Yelp reviews"
+    print "----------------------------------"
+    print "Todd Pollak, Teddy Cleveland"
+    print "----------------------------------"
+    print maxN, "- gram model"
+    print "----------------------------------"
+    print "Training model...."
+    print "----------------------------------"
+
     naiveBayes.Train(training_set_prep, maxN)
+
+    print len(training_set), "reviews used in training", len(test_set), "reviews used in test set"
+    print "----------------------------------"
+    print "Running test data on constructed model...."
+    print "----------------------------------"
     
     #Test accuracy
     total = 0.0
     right = 0.0
     for review in test_set_prep:
         total += 1.0
-        if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review, maxN, interpWeights):
+        if review['stars'] in naiveBayes.positive and naiveBayes.PredictPositive(review, maxN):
             right += 1.0
-        elif review['stars'] in naiveBayes.negative and not naiveBayes.PredictPositive(review, maxN, interpWeights):
+        elif review['stars'] in naiveBayes.negative and not naiveBayes.PredictPositive(review, maxN):
             right += 1.0
 
-    print ((right/total) * 100)
+    print "Percent Accuracy using Stupid Backoff and Laplace Smoothing:", ((right/total) * 100), "\n"
 
 
 if __name__ == '__main__':
