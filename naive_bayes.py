@@ -28,13 +28,13 @@ class NaiveBayes(object):
             for review in training_set:
                 if review['stars'] in self.positive:
                     for i, word in enumerate(review['text'][nGram - N:]):
-                        if word is not "</S>" and word is not "<S>":
+                        if word is not "</S>":
                             gram = tuple(review['text'][i - N:i])
                             self.positiveNgrams[N] += 1
                             self.positiveCounts[N][gram] += 1
                 else:
                     for i, word in enumerate(review['text'][nGram - N:]):
-                        if word is not "</S>" and word is not "<S>":
+                        if word is not "</S>":
                             gram = tuple(review['text'][i - N:i])
                             self.negativeNgrams[N] += 1
                             self.negativeCounts[N][gram] += 1
@@ -55,10 +55,11 @@ class NaiveBayes(object):
         else:
             return log(float(gramCounts[n][ngram]) / float(total[n]))
     
-    # predict probability of positive using weighted linear interpolation            
+    
     def PredictPositive(self, review, maxN):
         p_positive = 0.0
         p_negative = 0.0
+
 
         for i, word in enumerate(review['text'][maxN - 1:]):
             gram = tuple(review['text'][i-maxN:i])
