@@ -21,9 +21,9 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if count >  (N * 10) and feature:
-                    self.features[feature] = counter
-                    counter += 1
+                if feature and  count > 25:
+                        self.features[feature] = counter
+                        counter += 1
 
     def buildData(self, dataset, ngrams, nGram):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
@@ -79,8 +79,8 @@ class Ngrams(object):
 
 def main():
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10000]
+    training_set = reviews[0:40000]
+    test_set     = reviews[40001:60000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
