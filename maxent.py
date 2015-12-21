@@ -24,7 +24,7 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (N==2 and count > 8) or (N==3 and count > 8) or N==1:
+                if (N==2 and count > 1) or (N==3 and count > 1) or N==1:
                     self.features[feature] = counter
                     counter += 1
 
@@ -78,18 +78,19 @@ class Ngrams(object):
                             if gram:
                                 self.counts[N][gram] += 1
 
+
 def main():
     reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:2000]
-    test_set     = reviews[2001:4000]
+    training_set = reviews[0:8000]
+    test_set     = reviews[8001:16000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     ngrams = Ngrams()
-    ngrams.Train(training_set_prep, 3)
+    ngrams.Train(training_set_prep, 2)
     stopwords = yelp_data.getStopWords()
     me = Maxent(vocab, stopwords)
-    me.buildFeatures(ngrams, 3)
+    me.buildFeatures(ngrams, 2)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", ngrams, 1)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", ngrams, 1)
 
