@@ -1,0 +1,2319 @@
+    1  ls
+    2  cd Squirrel2
+    3  ls
+    4  cd Desktop
+    5  ls
+    6  cd ..
+    7  ls
+    8  z
+    9  ls
+   10  z
+   11  !
+   12  clear
+   13  up
+   14  sudo apt-get upgrade
+   15  sudo apt-get update
+   16  sudo apt-get dist-upgrade
+   17  pwd
+   18  df -h
+   19  umount /dev/mmcblk0p1
+   20  sudo nmap -sP -PU161 192.168.2.1/24
+   21  ifwconfig
+   22  ifconfig
+   23  sudo nmap -sP -PU161 192.168.1.225/24
+   24  udo nmap -sP -PS22,3389 192.168.2.1/24
+   25  sudo nmap -sP -PS22,3389 192.168.2.1/24
+   26  nmap
+   27  sudo nmap -sP -PS22,3389 192.168.2.1/24
+   28  sudo nmap -sP -PS22,3389 192.168.1.225/24
+   29  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/sdd
+   30  dd bs=4M if=2015-05-05-raspbian-wheezy.i\n: 1434236585:0;clear
+   31  df -h
+   32  umount /dev/mmcblk0p1
+   33  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/sdd
+   34  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+   35  sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+   36  ifconfig
+   37  sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+   38  sudo nmap -sP -PS22,3389 192.168.1.225/24
+   39  ifconfig
+   40  sudo nmap -sP -PS22,3389 192.168.0.1/24
+   41  sudo nmap -sP -PS22,3389 192.168.1.1/24
+   42  ping -b 169.254.255.255
+   43  ifconfig
+   44  sudo apt-get install dnsmasq
+   45  ifconfig
+   46  iface eth0 inet dhcp
+   47  sudo subl /etc/network/interfaces
+   48  ifconfig
+   49  sudo service networking restart
+   50  sudo service networking stop
+   51  ps
+   52  ps aux | grep
+   53  ps aux | grep "dmnsq"
+   54  kill -9 6528
+   55  sudo nmap -sP -PS22,3389 169.254.0.2/16
+   56  ls
+   57  cd Downloads
+   58  ls
+   59  tar -C /usr/local -xzf go1.4.2.linux-amd64.tar.gz
+   60  sudo tar -C /usr/local -xzf go1.4.2.linux-amd64.tar.gz
+   61  export PATH=$PATH:/usr/local/go/bin
+   62  go version
+   63  cd ..
+   64  ls
+   65  mkdir kor
+   66  cd kor
+   67  git remote add origin https://github.com/tcclevela/kor.git
+   68  git init
+   69  git remote add origin https://github.com/tcclevela/kor.git
+   70  git pull
+   71  git pull origin
+   72  git pull master origin
+   73  git pull origin master
+   74  ls
+   75  subl .
+   76  git add -A
+   77  git commit -m"adding current go version"
+   78  ggpush
+   79  git add -A
+   80  git commit -m"starter file"
+   81  ggpush
+   82  git pull
+   83  ggpush
+   84  git pull origin master
+   85  git commit -m"merging"
+   86  git add -A
+   87  git commit -m"merging"
+   88  ggpush
+   89  git add -A
+   90  git commit -m"removing tip from travis"
+   91  ggpush
+   92  go version
+   93  git pull
+   94  gp
+   95  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/sdd
+   96  sudo nmap -sP -PS22,3389 192.168.1.1/24
+   97  git pull
+   98  gp
+   99  git status
+  100  gp
+  101  git pull origin master
+  102  git checkout -b "networking code"
+  103  git checkout -b networking code
+  104  git checkout -b networking-code
+  105  go get gopkg.in/yaml.v2
+  106  pwd
+  107  export $GOPATH=/home/todd/kor
+  108  pwd
+  109  export GOPATH=/home/todd/kor
+  110  go get gopkg.in/yaml.v2
+  111  ls
+  112  cd src
+  113  ls
+  114  rm -rf gopkg.in
+  115  go get gopkg.in/yaml.v2
+  116  ls
+  117  cd kor
+  118  ls
+  119  cd node
+  120  ls
+  121  cd ..
+  122  ls
+  123  mkdir network
+  124  cd network
+  125  ls
+  126  git add -A "intial network code"
+  127  git add -A
+  128  cd ..
+  129  ls
+  130  cd ..
+  131  ls
+  132  cd ..
+  133  ls
+  134  git add -A
+  135  git commit -m"intial network code"
+  136  ifconfig
+  137  ls
+  138  git add -A
+  139  git commit -m"broadcast"
+  140  cd src/kor/network
+  141  ls
+  142  go run network.go
+  143  go run listener.go
+  144  go run network.go
+  145  go run listener.go
+  146  go run network.go
+  147  ifconfig
+  148  go run network.go
+  149  go run listener.go
+  150  go run network.go
+  151  ifconfig
+  152  go run network.go
+  153  ifocnfig
+  154  ifconfig
+  155  go run network.go
+  156  go run listener.go
+  157  go run network.go
+  158  git add -A
+  159  git commit -m"broadcast and listen"
+  160  git add -A
+  161  git commit -m"changing buffer sizes"
+  162  ggpush
+  163  git add -A 
+  164  git commit -m "removing main"
+  165  ggpush
+  166  checkout master
+  167  git checkout master
+  168  gp
+  169  ls
+  170  cd ..
+  171  ls
+  172  cd ..
+  173  ls
+  174  cd ..
+  175  ls
+  176  git pull origin master
+  177  git add -A
+  178  git commit -m "removing unused dep"
+  179  ggpush
+  180  git add -A
+  181  git commit -m"adding Deps"
+  182  ggpush
+  183  git add -A
+  184  git commit -m"making stuff compile"
+  185  ggpush
+  186  gp
+  187  git pull
+  188  git pull origin master
+  189  go build
+  190  ls
+  191  cd src
+  192  go build
+  193  ls
+  194  cd kor
+  195  ls
+  196  cd daemon
+  197  ls
+  198  go build main.go
+  199  ls
+  200  ./main
+  201  ls
+  202  rm main
+  203  ls
+  204  go vet
+  205  git pull
+  206  git pull origin master
+  207  ls
+  208  go build -tags local
+  209  ls
+  210  git status
+  211  rm daemon
+  212  ls
+  213  git pull origin master
+  214  go install
+  215  ls
+  216  cd ..
+  217  ls
+  218  cd test_helper
+  219  git install
+  220  go install
+  221  git pull
+  222  git pull origin master
+  223  go get
+  224  go help
+  225  go help get
+  226  git pull origin master
+  227  git add -A
+  228  cd ..
+  229  ls
+  230  cd ..
+  231  git add -A
+  232  git commit -m"path change"
+  233  ggpush
+  234  git pull origin master
+  235  ggpush
+  236  git pull origin master
+  237  git pull orgin master
+  238  git fetch --all
+  239  git reset --hard origin/master
+  240  ls
+  241  git pull origin master
+  242  git add -A
+  243  cd ..
+  244  ks
+  245  ls
+  246  git add -A
+  247  git commit -m"f"
+  248  ggpush
+  249  ifconfig
+  250  nmap -p22 -St 192.168.1.1/24
+  251  nmap -p22 -sT 192.168.1.1/24
+  252  sudo nmap -sP -PU161 192.168.2.1/24 
+  253  sudo nmap -sP -PS22,3389 192.168.2.1/24
+  254  sudo nmap -sP -PS22,3389 192.168.1.1/24
+  255  ssh pi@192.168.1.38
+  256  ssh rasperry@192.168.1.38
+  257  ssh pi@192.168.1.38
+  258  sudo nmap -sP -PS22,3389 192.168.1.1/24
+  259  ssh pi@192.168.1.176
+  260  sudo nmap -sP -PS22,3389 192.168.1.1/24
+  261  ssh pi@192.178.1.176
+  262  ssh pi@192.168.1.176
+  263  ls
+  264  subl .
+  265  scan
+  266  up
+  267  df -h
+  268  l
+  269  ls
+  270  df -h
+  271  unmount /dev/mmcblk0p1
+  272  umount /dev/mmcblk0p1
+  273  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+  274  ls
+  275  ifconfig
+  276  ifocnfig
+  277  ifconfig
+  278  ifup eth0
+  279  sudo ifup eth0
+  280  ifocnfig
+  281  ifconfig
+  282  ifocnfig
+  283  route
+  284  route del default eth0
+  285  sudo route del default eth0
+  286  ls
+  287  ifconfig
+  288  up
+  289  sudo lshw -C network
+  290  dup
+  291  cat /etc/network/interfaces
+  292  subl /etc/network/interfaces
+  293  cat /etc/resolv.conf
+  294  cat /etc/network/interfaces
+  295  ifocnfig
+  296  ifconfig
+  297  cat /etc/sysconfig/network-scripts/
+  298  ls /etc/sysconfig/network-scripts/
+  299  subl /etc/sysconfig/network-scripts/ifcfg-eth0
+  300  ifocnfig
+  301  ifconfig
+  302  ifup eth0
+  303  sudo ifup eth0
+  304  subl /etc/NetworkManager/NetworkManager.conf
+  305  sudo service network-manager restart
+  306  ifocnfig
+  307  ifconfig
+  308  ifocnfig
+  309  ifconfig
+  310  df -h
+  311  umount /dev/mmcblk0p1
+  312  dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/sdd
+  313  sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+  314  df -h
+  315  ps
+  316  up
+  317  df -h
+  318  umount /dev/mmcblk0p1
+  319  umount /dev/mmcblk0p2
+  320  df -h
+  321  sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0
+  322  ls
+  323  cd ..
+  324  /media
+  325  ls
+  326  cd todd
+  327  ls
+  328  cd 13d368bf-6dbf-4751-8ba1-88bed06bef77
+  329  ls
+  330  cd sys
+  331  ls
+  332  cd ..
+  333  ls
+  334  cd etc
+  335  ;s
+  336  ls
+  337  cd rc2.d
+  338  ls
+  339  mv K01ssh S02ssh
+  340  sudo mv K01ssh S02ssh
+  341  ls
+  342  scan
+  343  clear
+  344  scan
+  345  ssh 192.168.1.224
+  346  ssh pi@192.168.1.224
+  347  scan
+  348  ssh pi@192.168.1.176
+  349  scan
+  350  ssh pi@192.168.1.224
+  351  scan
+  352  ssh pi@192.168.1.224
+  353  scan
+  354  ls
+  355  cd Do
+  356  cd Downloads
+  357  ls
+  358  rsync -v -e ssh go1.4.2.linux-arm-multiarch-armv7-1.tar.gz  pi@192.168.1.176:~
+  359  rsync -v -e ssh go1.4.2.linux-arm-multiarch-armv7-1.tar.gz  pi@192.168.1.224:~
+  360  ls 
+  361  cd ~/kor
+  362  ls
+  363  git pull
+  364  git pull origin master
+  365  scan
+  366  up
+  367  dup
+  368  gksu service network-manager start
+  369  sudo service network-manager restart
+  370  up
+  371  dup
+  372  lspci
+  373  dmidecode | grep -A3 '^System Information' 
+  374  sudo dmidecode | grep -A3 '^System Information' 
+  375  which java
+  376  java -version
+  377  cd Downloads
+  378  ls
+  379  tar xfz ideaIC-14.1.4.tar.gz
+  380  ls
+  381  cd idea-IC-141.1532.4
+  382  ls
+  383  cd ..
+  384  ls
+  385  mv idea-IC-141.1532.4 ~/
+  386  ls
+  387  cd ~
+  388  ls
+  389  rm idea-IC-135.480
+  390  rm -rf idea-IC-135.480
+  391  rm -rf IdeaProjects
+  392  cd idea-IC-141.1532.4
+  393  ls
+  394  cd bin
+  395  ls
+  396  sh idea.sh
+  397  sudo add-apt-repository ppa:openjdk-r/ppa
+  398  sudo apt-get update 
+  399  sudo apt-get install openjdk-8-jdk
+  400  sudo update-alternatives --config java
+  401  sudo update-alternatives --config javac
+  402  java -version
+  403  upower -i /org/freedesktop/UPower/devices/battery_BAT0
+  404  dmidecode -t 17
+  405  sudo dmidecode -t 17
+  406  dmidecode –type memory
+  407  sudo dmidecode –type memory
+  408  sudo dmidecode --type 17 | more
+  409  sudo dmidecode --type 17  | grep -i speed
+  410  sudo service network-manager restart
+  411  up
+  412  dup
+  413  sudo apt-get autoremove
+  414  cd `\n
+  415  cd ~
+  416  l
+  417  ls
+  418  mkdir bf2b
+  419  cd bf2b
+  420  git init
+  421  mkdir -p  java/main/com/bf2/auth
+  422  cd ~/bdf2
+  423  cd ~/bf2b
+  424  ls
+  425  mkdir auth
+  426  mv java auth
+  427  ls
+  428  cd auth
+  429  ls
+  430  cd ..
+  431  ls
+  432  touch .gitignore
+  433  touch build.gradle
+  434  sudo add-apt-repository ppa:cwchien/gradle
+  435  sudo apt-get update
+  436  sudo apt-get install gradle
+  437  cd
+  438  ls
+  439  cd bf2b
+  440  ls
+  441  cd auth
+  442  ls
+  443  mkdir main
+  444  mv java main
+  445  ls
+  446  cd main
+  447  ls
+  448  cd java
+  449  ls
+  450  mv main .
+  451  mv main/com/bf2/auth/HelloWorld.java .
+  452  ls
+  453  l
+  454  ls
+  455  cd com
+  456  ls
+  457  cd ..
+  458  cd..
+  459  cd ..
+  460  ls
+  461  cd ..
+  462  ls
+  463  gradle
+  464  ls
+  465  cd ..
+  466  ls
+  467  cd ..
+  468  ls
+  469  rm -rf bf2b
+  470  mkdir b52b
+  471  git init
+  472  ls
+  473  rm -rf .git
+  474  ls
+  475  cd b52b
+  476  ls
+  477  git init
+  478  mkdir bf2bService
+  479  rm -rf bf2bService
+  480  mkdir b52Service
+  481  ls
+  482  cd b52Service
+  483  mkdir -p src/main/java/com/b52b/service
+  484  ls
+  485  cd ..
+  486  ls
+  487  mkdir b52bData
+  488  ls
+  489  cd b52bData
+  490  ls
+  491  mkdir -p src/main/java/com/b52b/data
+  492  cd ~/b52b
+  493  ls
+  494  touch build.gradle
+  495  touch settings.gradle
+  496  subl .
+  497  which gradle
+  498  vim
+  499  gradle hello
+  500  mv hello hello.gradle
+  501  gradle getHomeDir
+  502  which gradle
+  503  gradle -version
+  504  gradle -home
+  505  print env
+  506  printenv
+  507  gradle --gradle-user-home
+  508  --gradle-user-home
+  509  gradle -gui
+  510  htop
+  511  ls
+  512  cd rm -rf bf2b
+  513  rm -rf bf2b
+  514  cd b52b
+  515  ls
+  516  cd B52b
+  517  cd B52bService
+  518  mkdir -p src/main/java/com/b52/service
+  519  touch build.gradle
+  520  cd ..
+  521  ls
+  522  cd B52bService
+  523  ls
+  524  cd ..
+  525  cd B52bData
+  526  ls
+  527  mkdir -p src/main/java/com/b52/data
+  528  touch build.gradle
+  529  cd ..
+  530  ls
+  531  cd ..
+  532  ls
+  533  git clone
+  534  git clone https://github.com/pkainulainen/gradle-examples.git
+  535  which java
+  536  ls -l /usr/java/
+  537  which java
+  538  ls -l /usr/bin/java
+  539  readlink -f $(which java)
+  540  subl .
+  541  cd b52b
+  542  ls
+  543  git add -A
+  544  git commit -m"Intial setup"
+  545  sudo service network-manager restart
+  546  htop
+  547  sudo lshw -class memory
+  548  htop
+  549  free -m
+  550  stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.9;}' < /proc/meminfo)k --vm-keep -m 1
+  551  top
+  552  htop
+  553  cat /proc/cpuinfo
+  554  ls
+  555  cd b52b
+  556  ls
+  557  gradle build
+  558  git add -A
+  559  git commit -m"Dropwizard setup"
+  560  gradle
+  561  htop
+  562  gradle
+  563  htop
+  564  gradle
+  565  gradle build uberjar
+  566  gradle shadowJar
+  567  gradle clean build B52Service B52Data shadowJar
+  568  gradle clean build Service Data shadowJar
+  569  gradle clean build B52bService B52bData shadowJar
+  570  gradle clean build B52bService shadowJar
+  571  gradle clean build shadowJar
+  572  ls
+  573  cd ..
+  574  ls
+  575  cd pem
+  576  chmod 400 b52.pem
+  577  ssh -i "b52.pem" ubuntu@52.27.125.107
+  578  cd ..
+  579  ls
+  580  cd b52b
+  581  gradle build shadowjar
+  582  htop
+  583  ls
+  584  cd B52bService
+  585  ls
+  586  cd build
+  587  ls
+  588  cd libs
+  589  ls
+  590  gradle fatJar
+  591  gradle tasks
+  592  gradle build
+  593  ls
+  594  cd ~/b52b
+  595  LS
+  596  ls
+  597  gradle build fatJar
+  598  java -jar B52bService/build/libs/B52bService-1.0.jar server
+  599  gradle build fatJar
+  600  java -jar B52bService/build/libs/B52bService-1.0.jar server ~/b52b/deploy/B52Service.yaml
+  601  java -jar B52bService/build/libs/B52bService-all-1.0.jar server ~/b52b/deploy/B52Service.yaml
+  602  gradle build fatJar
+  603  htop
+  604  gradle clean
+  605  gradle build fatJar
+  606  gradle clean
+  607  gradle build
+  608  git add -A
+  609  git status
+  610  git add -A
+  611  git status
+  612  git commit -m"Cleaning gradle"
+  613  ls
+  614  cd ..
+  615  ls
+  616  scp -r ~/pem/b52.pem b52b ubuntu@52.27.125.107:~/
+  617  scp -i -r ~/pem/b52.pem b52b ubuntu@52.27.125.107:~/
+  618  scp -r ~/pem/b52.pem b52b ubuntu@52.27.125.107:~/
+  619  scp -r ~/pem/b52.pem b52b ubuntu@52.27.125.107:~/.
+  620  scp -i ~/pem/b52.pem -r b52b ubuntu@52.27.125.107:~/.
+  621  cd ~
+  622  ls
+  623  subl .
+  624  cat .bashrc
+  625  vim .bashrc
+  626  deployb52
+  627  cat .bashrc
+  628  deployB52
+  629  up
+  630  cat
+  631  cat .bashrc
+  632  vim .zshrc
+  633  deployB52
+  634  ls
+  635  vim .zshrc
+  636  deployB52
+  637  cd b52b
+  638  gradle clean
+  639  gradle build fatJat
+  640  gradle clean
+  641  gradle build fatJar
+  642  rsync -avL --progress -e "ssh -i ~/pem/b52.pem" ~/b52b ubuntu@52.27.125.107:~/.
+  643  ls -l ~/pem
+  644  cat  ~/pem/b52.pem
+  645  chmod 400 ~/pem/b52.pem
+  646  rsync -avL --progress -e "ssh -i ~/pem/b52.pem" ~/b52b ubuntu@52.27.125.107:~/.
+  647  rsync -avL --progress -e ssh -i ~/pem/b52.pem ~/b52b ubuntu@52.27.125.107:~/.
+  648  rsync  ssh -i ~/pem/b52.pem ~/b52b ubuntu@52.27.125.107:~/.
+  649  ls
+  650  ssh -i ~/pem/b52.pem ubuntu@52.27.125.107
+  651  rsync -avz ~/b52b -e "ssh -i ~/pem/b52.pem" ubuntu@52.27.125.107:~/bf2b
+  652  sudo rsync -avz ~/b52b -e "ssh -i ~/pem/b52.pem" ubuntu@52.27.125.107:~/bf2b
+  653  cd ~
+  654  pwd
+  655  rsync -avz ~/b52b -e "ssh -i /home/todd/pem/b52.pem" ubuntu@52.27.125.107:~/bf2b
+  656  vim .zshrc
+  657  ls
+  658  ls -a
+  659  cd ~
+  660  ls
+  661  vim .zshrc
+  662  ssh -i "b52.pem" ubuntu@52.27.125.107
+  663  deployB52
+  664  echo $JAVA_HOME
+  665  cd ~
+  666  ls
+  667  cat .bashrc
+  668  cd ~/b52b
+  669  gradle build fatJar
+  670  deployB52
+  671  ls
+  672  mv run.sh run
+  673  git add -A
+  674  git commit -m"Run script"
+  675  curl http://52.27.125.107:8080/hello-world
+  676  deployB52
+  677  ls
+  678  gradle builf
+  679  gradle build
+  680  gradle build --info
+  681  gradle build
+  682  deployB52
+  683  cat ~/.zshrc
+  684  ssh -i /home/todd/pem/b52.pem ubuntu@52.27.125.107
+  685  deployB52
+  686  git add -A
+  687  git commit -m"Weather"
+  688  deployB52
+  689  ssh -i /home/todd/pem/b52.pem ubuntu@52.27.125.107
+  690  deployB52
+  691  cd ~
+  692  subl .zshrc
+  693  testServ
+  694  ls
+  695  cd todd
+  696  la
+  697  l
+  698  ls
+  699  cd ..
+  700  ls
+  701  cd go
+  702  ls
+  703  cd ..
+  704  ls
+  705  git clone https://github.com/tcclevela/Chinchilla.git
+  706  ls
+  707  mkdir loadTest
+  708  ls
+  709  cd loadTest
+  710  subl .
+  711  python tester.py
+  712  sudo service network-manager restart
+  713  ifconfig
+  714  arp -a
+  715  ping localhost
+  716  curl www.google.come
+  717  curl www.google.com
+  718  up
+  719  dup
+  720  cat /etc/network/interfaces
+  721  cat /etc/init/network-manager.conf
+  722  cat /etc/network/interfaces
+  723  sudo vim  /etc/network/interfaces
+  724  unity --version
+  725  gnome
+  726  ps
+  727  sudo apt-get remove wine
+  728  up
+  729  htop
+  730  sudo apt-get --purge remove wine
+  731  sudo apt-get autoclean
+  732  sudo apt-get clean
+  733  sudo apt-get autoremove
+  734  sudo add-apt-repository ppa:gnome-shell-extensions
+  735  up
+  736  sudo apt-get install gnome-shell-extension-weather
+  737  sudo apt-get remove  gnome-shell-extension-weather
+  738  htop
+  739  iperf
+  740  lspci -nn
+  741  sudo ls -l /etc/
+  742  sudo ls -l /etc/modprobe.d
+  743  cat  /etc/modprobe.d/iwlwifi.conf
+  744  vim  /etc/modprobe.d/iwlwifi.conf
+  745  ls
+  746  sudo vim  /etc/modprobe.d/iwlwifi.conf
+  747  sudo modprobe -r iwlwifi
+  748  sudo modprobe -r iwlwifi -f
+  749  sudo modprobe -r -f iwlwifi -f
+  750  iwconfig
+  751  up
+  752  dup
+  753  iwconfigmodinfo iwlwifi
+  754  modinfo iwlwifi
+  755  iwconfig
+  756  wget http://hostve.com/neobuntu/pics/Ubu1.avi
+  757  wget -O speedtest-cli https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py
+  758  chmod +x speedtest-cli
+  759  ./speedtest-cli
+  760  ifconfig
+  761  iftop
+  762  sudo apt-get install iftop
+  763  iftop
+  764  sudo iftop
+  765  ifwconfig
+  766  ifconfig
+  767  ifwconfig
+  768  iwconfig
+  769  iftop wlan1
+  770  iftop -i wlan1
+  771  sudo iftop -i wlan1
+  772  wget -N -t 5 -T 10 https://github.com/UbuntuForums/wireless-info/raw/master/wireless-info && \\n\n\n\nls
+  773  ls
+  774  wget -N -t 5 -T 10 https://github.com/UbuntuForums/wireless-info/raw/master/wireless-info && \\nchmod +x wireless-info && \\n./wireless-info
+  775  ls
+  776  cat wireless-info.t
+  777  cat wireless-info.txt
+  778  subl wireless-info.txt
+  779  sudo iwconfig wlan1 power off
+  780  sudo iw reg set US
+  781  sudo sed -i 's/^REG.*=$/&US/' /etc/default/crda
+  782  echo "options iwlwifi 11n_disable=8" | sudo tee -a /etc/modprobe.d/iwlwifi.conf
+  783  dbus-send --system --print-reply \\n    --dest="org.freedesktop.UPower" \\n    /org/freedesktop/UPower \\n    org.freedesktop.UPower.Suspend
+  784  bus-send --system --print-reply \\n  --dest="org.freedesktop.login1" \\n  /org/freedesktop/login1 \\n  org.freedesktop.login1.Manager.Suspend boolean:true
+  785  dbus-send --system --print-reply \\n  --dest="org.freedesktop.login1" \\n  /org/freedesktop/login1 \\n  org.freedesktop.login1.Manager.Suspend boolean:true
+  786  subl 
+  787  pwd
+  788  ls
+  789  up
+  790  dup
+  791  up
+  792  dup
+  793  sudo apt-get autoremove
+  794  up
+  795  dup
+  796  sudo vim /etc/resolvconf/resolv.conf.d/base
+  797  sudo resolvconf -u
+  798  up
+  799  dup
+  800  school
+  801  man strlen
+  802  up
+  803  dup
+  804  school
+  805  up
+  806  dup
+  807  traceroute google
+  808  ping -c www.google.com
+  809  ping -c 10  www.google.com
+  810  up
+  811  dup
+  812  school
+  813  cd Desktop/comp
+  814  ls
+  815  submit.sh
+  816  sh submit.sh
+  817  sh submit.sh 2 3
+  818  sudo pip install -U nltk
+  819  ls
+  820  cd Desktop/comp
+  821  ls
+  822  mkdir comp150NLP
+  823  ls
+  824  cd comp150NLP
+  825  ls
+  826  python
+  827  ls
+  828  mkdir p1
+  829  ls
+  830  cd p1
+  831  ls
+  832  python template.py
+  833  python
+  834  python template.py
+  835  clear
+  836  python template.py
+  837  clear
+  838  python template.py
+  839  up
+  840  dup
+  841  man clock_gettime
+  842  ps
+  843  cat /proc/11123/stat
+  844  nano /proc/11123/stat
+  845  man proc
+  846  cat /proc/stat
+  847  up
+  848  dup
+  849  cd Desktop/comp
+  850  cd comp150NLP
+  851  ls
+  852  cd p1
+  853  ls
+  854  python fsa.py
+  855  man waitpid
+  856  man wait
+  857  school
+  858  up
+  859  dup
+  860  ls
+  861  school
+  862  ls
+  863  school
+  864  s
+  865  ls
+  866  school
+  867  pwd
+  868  scp tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/hfreed03 /home/todd
+  869  scp tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/hfreed03.1 /home/todd
+  870  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/hfreed03.1 /home/todd
+  871  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/hfreed03.1 /home/todd/h/ccasey01/grading/locality-design/submissions/hfreed03.1
+  872  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/submissions/hfreed03.1 /home/todd
+  873  ls
+  874  mkdir grades
+  875  mv hfreed03.1 grades/
+  876  ls
+  877  cd grad
+  878  cd grades
+  879  ls
+  880  cd hfreed03.1
+  881  ls
+  882  gnome-open design.pdf
+  883  gnome-open estimates.pdf
+  884  gnome-open design.pdf
+  885  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/submissions/woxman01.2 /home/todd/grades
+  886  ls
+  887  cd ..
+  888  ls
+  889  cd woxman01.2
+  890  ls
+  891  subl
+  892  subl .
+  893  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/submissions/klustg01.2 /home/todd/grades
+  894  ls
+  895  cd ..
+  896  ls
+  897  cd klustg01.2
+  898  ls
+  899  gnome-open design.pdf
+  900  gnome-open estimates.pdf
+  901  ls
+  902  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/submissions/tho01.1 /home/todd/grades
+  903  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/locality-design/submissions/tho01.1/ /home/todd/grades
+  904  cd ..
+  905  ls
+  906  cd tho01.1
+  907  ls
+  908  gnome-open design.pdf
+  909  gnome-open
+  910  gnome-open design.pdf
+  911  ls
+  912  subl ESTIMATES
+  913  school
+  914  up
+  915  ls
+  916  school
+  917  cd Desktop/comp/comp150NLP/p2
+  918  python bigram.py
+  919  python 
+  920  python bigram.py
+  921  python
+  922  python bigram.py
+  923  clear
+  924  python bigram.py
+  925  ls
+  926  cd ..
+  927  ks
+  928  ls
+  929  cd ..
+  930  ls
+  931  cd comp111
+  932  ls
+  933  cd a2
+  934  ls
+  935  gcc sig.c
+  936  gcc sig.c -l pthread
+  937  ./a.out
+  938  gcc sig.c -l pthread
+  939  g
+  940  ls
+  941  ./a.out
+  942  gcc sig.c -l pthread
+  943  python bigram.py
+  944  gcc sig.c -l pthread
+  945  python bigram.py
+  946  ls
+  947  cd ~
+  948  ls
+  949  cd Desktop
+  950  ls
+  951  du -a comp | sort -n -r | head -n 10
+  952  ls
+  953  cd comp/comp150NLP
+  954  cd p2
+  955  python bigram.py
+  956  up
+  957  dup
+  958  cd Desktop/comp/comp150NLP
+  959  ls
+  960  cd p2
+  961  ls
+  962  python bigram.py
+  963  clear
+  964  up
+  965  dup
+  966  python bigram.py
+  967  python
+  968  python bigram.py
+  969  up
+  970  dup
+  971  school
+  972  ls
+  973  cd grades
+  974  ls
+  975  subl .
+  976  ls
+  977  du -a /var | sort -n -r | head -n 10
+  978  du -a ~| sort -n -r | head -n 10
+  979  du -a ~ | sort -n -r | head -n 10
+  980  school
+  981  ls
+  982  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/arith-design/submissions/ahoibe01.1 /home/todd/grades
+  983  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/arith-design/submissions/jfairf01.1 /home/todd/grades
+  984  ls
+  985  cd ahoibe01.1
+  986  ls
+  987  subl DESIGN
+  988  ls
+  989  cd ..
+  990  ls
+  991  cd jfairf01.1
+  992  ls
+  993  subl DESIGN
+  994  ls
+  995  subl BITPACK_DESIGN
+  996  ls
+  997  school
+  998  ls
+  999  school
+ 1000  du -a ~ | sort -n -r | head -n 10
+ 1001  school
+ 1002  cd ..
+ 1003  ls
+ 1004  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/arith-design/submissions/bmachl01.1 /home/todd/grades
+ 1005  scp -r tpolla01@homework.cs.tufts.edu:/h/ccasey01/grading/arith-design/submissions/sgibso03.1 /home/todd/grades
+ 1006  l
+ 1007  ls
+ 1008  cd bmachl01.1
+ 1009  ls
+ 1010  gnome-open design.pdf
+ 1011  ls
+ 1012  school
+ 1013  ls
+ 1014  cd ..
+ 1015  ls
+ 1016  cd sgibso03.1
+ 1017  ls
+ 1018  subl DESIGN
+ 1019  ls
+ 1020  up
+ 1021  dup
+ 1022  sudo apt-get auto-remove
+ 1023  sudo apt-get autoremove
+ 1024  up
+ 1025  dup
+ 1026  up
+ 1027  dup
+ 1028  school
+ 1029  up
+ 1030  dup
+ 1031  ls
+ 1032  cd Desktop/comp/comp150NLP
+ 1033  ls
+ 1034  cd p3
+ 1035  ls
+ 1036  python hmm.py
+ 1037  OA
+ 1038  python hmm.py
+ 1039  up
+ 1040  dup
+ 1041  sudo apt-get autoremove
+ 1042  clear
+ 1043  cd Desktop/comp/comp150NLP
+ 1044  lls
+ 1045  ls
+ 1046  cd p3
+ 1047  ls
+ 1048  python hmm.py
+ 1049  ls
+ 1050  python hmm.py
+ 1051  ls
+ 1052  python hmm.py
+ 1053  clear
+ 1054  python hmm.py
+ 1055  clear
+ 1056  python hmm.py
+ 1057  clear
+ 1058  python hmm.py
+ 1059  clea
+ 1060  clear
+ 1061  python hmm.py
+ 1062  clear
+ 1063  python hmm.py
+ 1064  clear
+ 1065  python hmm.py
+ 1066  clear
+ 1067  python hmm.py
+ 1068  python hmm.py > prep.txt
+ 1069  cat prep.txt
+ 1070  python hmm.py > prep.txt
+ 1071  python hmm.py
+ 1072  ls
+ 1073  python hmm.py
+ 1074  ls
+ 1075  python hmm.py
+ 1076  python hmm.py > first1000
+ 1077  python hmm.py
+ 1078  python hmm.py > first1000
+ 1079  python hmm.py
+ 1080  python hmm.py > blah.txt
+ 1081  python hmm.py
+ 1082  school
+ 1083  up
+ 1084  dup
+ 1085  up
+ 1086  dup
+ 1087  ulimit
+ 1088  ulimit -n
+ 1089  ulimit -u
+ 1090  school
+ 1091  up
+ 1092  dup
+ 1093  sudo apt-get auto-remove
+ 1094  sudo apt-get autoremove
+ 1095  school
+ 1096  up
+ 1097  dup
+ 1098  up
+ 1099  dup
+ 1100  school
+ 1101  which python
+ 1102  python -version
+ 1103  python
+ 1104  up
+ 1105  dup
+ 1106  up
+ 1107  dup
+ 1108  ls
+ 1109  cd Desktop/comp/comp150NLP
+ 1110  ls
+ 1111  cd p4
+ 1112  ls
+ 1113  python pcfg.py
+ 1114  ls
+ 1115  python pcfg.py
+ 1116  ls
+ 1117  python pcfg.py
+ 1118  clear
+ 1119  python pcfg.py
+ 1120  CLEAR
+ 1121  clear
+ 1122  python pcfg.py
+ 1123  clear
+ 1124  python pcfg.py
+ 1125  make
+ 1126  ls
+ 1127  clear
+ 1128  python pcfg.py
+ 1129  cs Desktop/comp/comp150NLP
+ 1130  ls
+ 1131  cd Desktop/comp/comp150NLP
+ 1132  ls
+ 1133  cd p4
+ 1134  lw
+ 1135  ls
+ 1136  python pcfg.py
+ 1137  python
+ 1138  python pcfg.py
+ 1139  python pcfg.py > out
+ 1140  python pcfg.py
+ 1141  clear
+ 1142  python pcfg.py
+ 1143  clear
+ 1144  python pcfg.py
+ 1145  clear
+ 1146  python pcfg.py
+ 1147  python pcfg.py > out
+ 1148  python pcfg.py
+ 1149  python pcfg.py > out
+ 1150  python pcfg.py
+ 1151  python pcfg.py > out
+ 1152  python pcfg.py
+ 1153  python pcfg.py > out
+ 1154  python pcfg.py
+ 1155  python pcfg.py > out
+ 1156  python pcfg.py
+ 1157  python
+ 1158  python pcfg.py
+ 1159  python pcfg.py > out
+ 1160  python pcfg.py
+ 1161  ./evalb ­p COLLINS.prm gold_1 test_1
+ 1162  ls
+ 1163  ./evalb -p COLLINS.prm gold_1 test_1
+ 1164  python pcfg.py
+ 1165  htop
+ 1166  memlimit
+ 1167  python pcfg.py
+ 1168  ./evalb -p COLLINS.prm gold_1 test_1
+ 1169  python pcfg.py
+ 1170  ./evalb -p COLLINS.prm gold_1 test_1
+ 1171  python pcfg.py
+ 1172  ls
+ 1173  python pcfg.py
+ 1174  diff gold_1 test_1
+ 1175  python pcfg.py
+ 1176  python pcfg.py > out
+ 1177  python pcfg.py
+ 1178  python pcfg.py > out
+ 1179  python pcfg.py
+ 1180  ./evalb -p COLLINS.prm gold_1 test_1
+ 1181  python pcfg.py
+ 1182  htop
+ 1183  ls
+ 1184  ./evalb -p COLLINS.prm gold_1 test_1
+ 1185  ls
+ 1186  mv gold_1 gold_2
+ 1187  mv test_1 test_2
+ 1188  ls
+ 1189  ./evalb -p COLLINS.prm gold_2 test_2
+ 1190  python pcfg.py
+ 1191  ls
+ 1192  cat gold_1
+ 1193  python pcfg.py
+ 1194  ls
+ 1195  htop
+ 1196  cd ~/Downloads
+ 1197  ls
+ 1198  mv pypy-4.0.1-linux64.tar.bz2 ~/Desktop/comp/comp150NLP/p4
+ 1199  ls
+ 1200  cd ~/Desktop/comp/comp150NLP/p4
+ 1201  ;s
+ 1202  ls
+ 1203  tar xf pypy-4.0.1-linux64.tar.bz2
+ 1204  ls
+ 1205  ./pypy-4.0.1-linux64 pcfg.py
+ 1206  chmod +x pypy-4.0.1-linux64
+ 1207  ./pypy-4.0.1-linux64 pcfg.py
+ 1208  ls
+ 1209  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1210  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+ 1211  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1212  ls
+ 1213  echo $PYTHONPATH
+ 1214  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1215  htop
+ 1216  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1217  head -n1 $(which pip)
+ 1218  ls /usr/local/lib/python2.7/site-packages
+ 1219  ls /usr/local/lib/python2.7
+ 1220  cd whoopsie
+ 1221  ls /usr/local/lib/python2.7/site-packages
+ 1222  ls /usr/local/lib/python2.7/dist-packages
+ 1223  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+ 1224  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/dist-packages
+ 1225  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1226  sudo pip install python-dateutil
+ 1227  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1228  sudo pip install six
+ 1229  xckfss9
+ 1230  sudo pip --upgrade six
+ 1231  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1232  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/dist-packages
+ 1233  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1234  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/dist-packages/
+ 1235  ./pypy-4.0.1-linux64/bin/pypy pcfg.py
+ 1236  ls
+ 1237  ./evalb -p COLLINS.prm gold_3 test_3
+ 1238  python pcfg.py
+ 1239  ./evalb -p COLLINS.prm gold_3 test_3
+ 1240  ./evalb -p COLLINS.prm gold_4 test_4
+ 1241  ./evalb -p COLLINS.prm gold_1 test_1
+ 1242  ./evalb -p COLLINS.prm gold_1 test_2
+ 1243  ./evalb -p COLLINS.prm gold_2 test_2
+ 1244  ./evalb -p COLLINS.prm gold_5 test_5
+ 1245  ./evalb -p COLLINS.prm gold_1 test_1
+ 1246  ls
+ 1247  cd b
+ 1248  ls
+ 1249  cat gold_1 >> gold_2
+ 1250  ls
+ 1251  cat gold_2
+ 1252  ls
+ 1253  cat gold_* > gold_master
+ 1254  la
+ 1255  ls
+ 1256  cat gold_master
+ 1257  ls
+ 1258  cat gold_1
+ 1259  cat gold_2
+ 1260  ls
+ 1261  cat test_* > test_master
+ 1262  ls
+ 1263  cat test_master
+ 1264  ls
+ 1265  cat test_1
+ 1266  cat test 2
+ 1267  cat test_2
+ 1268  cat test_3
+ 1269  cat test_4
+ 1270  cat test_5
+ 1271  ls
+ 1272  rm *
+ 1273  ls
+ 1274  cd  ..
+ 1275  ks
+ 1276  ls
+ 1277  cat test_* > test_master
+ 1278  cat gold_* > gold_master
+ 1279  ls
+ 1280  ./evalb -p COLLINS.prm gold_master test_master
+ 1281  ls
+ 1282  cat test_1 test_2 > test_low
+ 1283  cat gold_1 gold_2 > gold_low
+ 1284  ./evalb -p COLLINS.prm gold_low test_low
+ 1285  htop
+ 1286  cd Desktop/comp/comp150NLP
+ 1287  ls
+ 1288  cd p4
+ 1289  ls
+ 1290  rm -rf pypy-4.0.1-linux64
+ 1291  ls
+ 1292  rm pypy-4.0.1-linux64.tar.bz2
+ 1293  ls
+ 1294  python pcfg.py
+ 1295  ls
+ 1296  cat gold_1
+ 1297  ls
+ 1298  cd ,
+ 1299  python pcfg.py
+ 1300  ls
+ 1301  cat gold_1
+ 1302  cat test_1
+ 1303  ./evalb -p COLLINS.prm gold_1 test_1
+ 1304  ./evalb -p COLLINS.prm gold_2 test_2
+ 1305  python pcfg.py
+ 1306  htop
+ 1307  ./evalb -p COLLINS.prm gold_2 test_2
+ 1308  ./evalb -p COLLINS.prm gold_1 test_1
+ 1309  ./evalb -p COLLINS.prm gold_2 test_2
+ 1310  ./evalb -p COLLINS.prm gold_3 test_3
+ 1311  ./evalb -p COLLINS.prm gold_4 test_4
+ 1312  ./evalb -p COLLINS.prm gold_5 test_5
+ 1313  cat test_5
+ 1314  ls
+ 1315  cat gold 5
+ 1316  ls
+ 1317  cd ..
+ 1318  ls
+ 1319  cd p4
+ 1320  ls
+ 1321  cd b
+ 1322  ls
+ 1323  cat test_5
+ 1324  ls
+ 1325  cd ..
+ 1326  ls
+ 1327  rm test_5 gold_5
+ 1328  ls
+ 1329  ./evalb -p COLLINS.prm gold_5 test_5
+ 1330  ./evalb -p COLLINS.prm gold_master test_master
+ 1331  ls
+ 1332  cat COLLINS.prm
+ 1333  ls
+ 1334  cat new.prm
+ 1335  ./evalb -p COLLINS.prm gold_master test_master
+ 1336  ls
+ 1337  cat gold_5
+ 1338  ls
+ 1339  clear
+ 1340  ls
+ 1341  clear
+ 1342  htop
+ 1343  clear
+ 1344  cd Desktop/comp/comp150NLP/p4
+ 1345  ls
+ 1346  ./evalb gold_low test_low
+ 1347  ls
+ 1348  cat test_low
+ 1349  cat gold_low
+ 1350  ./evalb -p COLLINS.prm
+ 1351  ./evalb -p COLLINS.prm gold_low test_low
+ 1352  ./evalb -p COLLINS.prm gold_1 test_1
+ 1353  python pcfg.py
+ 1354  ./evalb -p COLLINS.prm gold_1 test_1
+ 1355  ls
+ 1356  cat gold_1
+ 1357  ./evalb -p COLLINS.prm gold_1 test_1
+ 1358  cat test_1
+ 1359  python pcfg.py
+ 1360  ./evalb -p COLLINS.prm gold_1 test_1
+ 1361  ls
+ 1362  cd Downloads
+ 1363  ls
+ 1364  mv *.pdf ~/Desktop/comp/comp160/hw8
+ 1365  school
+ 1366  ls
+ 1367  cd Desktop/comp/comp150NLP
+ 1368  ls
+ 1369  cd p4
+ 1370  ./evalb -p COLLINS.prm gold_low test_low
+ 1371  python pcfg.py
+ 1372  ls
+ 1373  cd Desktop/comp/comp150NLP/p4
+ 1374  ls
+ 1375  mkdir sub
+ 1376  ls
+ 1377  cp gold_* sub
+ 1378  cp test_* sub
+ 1379  cp pcfg.py sub
+ 1380  ls
+ 1381  cd sub
+ 1382  ls
+ 1383  rm gold_low
+ 1384  rm test_low
+ 1385  ls
+ 1386  cd ..
+ 1387  ls
+ 1388  tar c sub
+ 1389  ls
+ 1390  cd sub
+ 1391  ls
+ 1392  cd ..
+ 1393  ks
+ 1394  ls
+ 1395  gzip -r sub
+ 1396  ls
+ 1397  sub
+ 1398  ls
+ 1399  cd ..
+ 1400  ls
+ 1401  unzip -r sub
+ 1402  ls
+ 1403  cd ..
+ 1404  ls
+ 1405  cd p4
+ 1406  ls
+ 1407  cd sub
+ 1408  ls
+ 1409  gunzip -r sub
+ 1410  cd ..
+ 1411  gunzip -r sub
+ 1412  ls
+ 1413  cd sub
+ 1414  ls
+ 1415  tar -zcvf files.tar.gz sub
+ 1416  up
+ 1417  dup
+ 1418  ls
+ 1419  cd Desktop/comp/comp150NLP/
+ 1420  ls
+ 1421  mkdir salmon
+ 1422  cd salmon
+ 1423  ls
+ 1424  git init
+ 1425  git remote add origin https://github.com/tpoll/salmon-of-knowledge.git
+ 1426  git pull
+ 1427  git pull origin master
+ 1428  ls
+ 1429  subl .
+ 1430  git add -A
+ 1431  git commit -m"Context in readme"
+ 1432  ggpush
+ 1433  ls
+ 1434  cd ~
+ 1435  ls
+ 1436  cd Downloads
+ 1437  ls
+ 1438  tar -xvf yelp_dataset_challenge_academic_dataset.tar
+ 1439  ls
+ 1440  cd yelp_dataset_challenge_academic_dataset
+ 1441  ls
+ 1442  cat yelp_academic_dataset_review.json
+ 1443  ls
+ 1444  ls -l
+ 1445  l
+ 1446  ls
+ 1447  subl yelp_academic_dataset_review.json
+ 1448  ls
+ 1449  pwd
+ 1450  cat yelp_academic_dataset_review.json
+ 1451  less yelp_academic_dataset_review.json
+ 1452  cd ~/Desktop/comp/comp150NLP/salmon
+ 1453  ls
+ 1454  python yelp_data.py
+ 1455  ls -l
+ 1456  python yelp_data.py 1 200
+ 1457  python parse_data.py 1 200
+ 1458  python yelp_data.py
+ 1459  ls
+ 1460  git add -A
+ 1461  git commit -m"Creation and selection of small dataset"
+ 1462  ggpush
+ 1463  python yelp_data.py 1 20000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1464  python parse_data.py 1 20000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1465  python yelp_data.py
+ 1466  ls
+ 1467  python yelp_data.py
+ 1468  git add -A
+ 1469  git commit -m"Making file paths portable"
+ 1470  ggpush
+ 1471  python simple_bayes.py
+ 1472  python
+ 1473  python simple_bayes.py
+ 1474  python naive_bayes.py
+ 1475  python parse_data.py 1 200000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1476  python naive_bayes.py
+ 1477  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1478  python naive_bayes.py
+ 1479  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1480  python naive_bayes.py
+ 1481  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1482  python naive_bayes.py
+ 1483  python naive_bayes.py > out
+ 1484  python naive_bayes.py
+ 1485  ls
+ 1486  git add -A
+ 1487  git commit -m"Intial text preperation"
+ 1488  ggpush
+ 1489  git add -A
+ 1490  git commit -m"Removing big data files"
+ 1491  ggpush
+ 1492  git add -A
+ 1493  git commit -m"Removing compiled python"
+ 1494  ggpush
+ 1495  ls
+ 1496  rm yelp_data.pyc
+ 1497  git add -A
+ 1498  git commit -m"Removing pyc"
+ 1499  ggpush
+ 1500  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1501  python naive_bayes.py
+ 1502  git add -A
+ 1503  git commit -m"Cleaning up repo"
+ 1504  ls
+ 1505  school
+ 1506  python naive_bayes.py
+ 1507  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1508  python
+ 1509  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1510  ls
+ 1511  python naive_bayes.py
+ 1512  less reviews.json
+ 1513  python naive_bayes.py
+ 1514  python naive_bayes.py > out
+ 1515  git add -A
+ 1516  git commit -m"Training for naive bayes"
+ 1517  ggpush
+ 1518  python naive_bayes.py > out
+ 1519  python naive_bayes.py
+ 1520  git add -A
+ 1521  git commit -m"Naive bayes with tests"
+ 1522  ggpush
+ 1523  git status
+ 1524  python naive_bayes.py
+ 1525  git add -A
+ 1526  git commit -m"Consistent naming"
+ 1527  ggpush
+ 1528  git checkout -b neutral-class
+ 1529  python naive_bayes.py
+ 1530  python parse_data.py 1 500000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1531  htop
+ 1532  ls
+ 1533  ls -
+ 1534  ls -l
+ 1535  python naive_bayes.py
+ 1536  git add -A
+ 1537  git commit -m"Neutral class calcs"
+ 1538  ggpush
+ 1539  git checkout master ter
+ 1540  git checkout master
+ 1541  python naive_bayes.py
+ 1542  python parse_data.py 1 200000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1543  python naive_bayes.py
+ 1544  git add -A
+ 1545  git commit -m"Testing on 200k reviews with holdout"
+ 1546  ggpush
+ 1547  /usr/bin/time python naive_bayes.py
+ 1548  /usr/bin/time -f "User time is %U" python naive_bayes.py
+ 1549  cd ..
+ 1550  ls
+ 1551  cd p2
+ 1552  ls
+ 1553  /usr/bin/time python bigram.py
+ 1554  /usr/bin/time -f "%U user time is" python bigram.py
+ 1555  cd ..
+ 1556  ls
+ 1557  cd salmon
+ 1558  ;s
+ 1559  ls
+ 1560  python naive_bayes.py
+ 1561  ls
+ 1562  python parse_data.py 1 100000 ~/Downloads/yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_review.json
+ 1563  python naive_bayes.py
+ 1564  git add -A
+ 1565  git commit -m"Smaller set for testing"
+ 1566  ggpush
+ 1567  up
+ 1568  dup
+ 1569  python naive_bayes.py
+ 1570  cd Desktop/comp/comp150NLP/ps4
+ 1571  cd Desktop/comp/comp150NLP/p4
+ 1572  ls
+ 1573  cd ..
+ 1574  cd salmon
+ 1575  python naive_bayes.py
+ 1576  git pull
+ 1577  git pull origin master
+ 1578  htop
+ 1579  up
+ 1580  dup
+ 1581  sudo apt-get autoremove
+ 1582  which weka
+ 1583  sudo apt-get install python-pip python-numpy
+ 1584  ls
+ 1585  cd Downloads
+ 1586  ls
+ 1587  school
+ 1588  sudo pip install bitarray
+ 1589  up
+ 1590  dup
+ 1591  ls
+ 1592  cd ~/Desktop/comp/comp150NLP/salmon
+ 1593  ggpull
+ 1594  python maxent.py
+ 1595  ls
+ 1596  weka
+ 1597  ls
+ 1598  cd ~
+ 1599  ls
+ 1600  cd weka-3-6-13
+ 1601  ls
+ 1602  cd ..
+ 1603  ls
+ 1604  cd weka-3-6-13
+ 1605  pwd
+ 1606  cd ~
+ 1607  ls
+ 1608  ls -l
+ 1609  ls -a
+ 1610  subl .zshrc
+ 1611  ls
+ 1612  cd ~/Desktop/comp/comp150NLP/salmon
+ 1613  ls
+ 1614  printenv
+ 1615  ls
+ 1616  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1617  java $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1618  java -jar $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1619  ls
+ 1620  ggpull
+ 1621  python maxent.py
+ 1622  ggpull
+ 1623  python maxent.py
+ 1624  ls
+ 1625  python maxent.py
+ 1626  java -cp -Xmx9000m $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1627  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1628  python maxent.py
+ 1629  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1630  python maxent.py
+ 1631  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1632  git add -A
+ 1633  git commit -m" Initial transfer over to sparse arff"
+ 1634  git add -A
+ 1635  git commit -m" Spacing and indet using spaces"
+ 1636  ggpush
+ 1637  python
+ 1638  python maxent.py
+ 1639  time python maxent.py
+ 1640  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1641  python maxent.py
+ 1642  time python maxent.py
+ 1643  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1644  time python maxent.py
+ 1645  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1646  time python maxent.py
+ 1647  java -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1648  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1649  htop
+ 1650  print end
+ 1651  print env
+ 1652  printenv
+ 1653  school
+ 1654  ls
+ 1655  htop
+ 1656  git add -A
+ 1657  git commit -m"numeric features"
+ 1658  ggpush
+ 1659  ggpull
+ 1660  ls
+ 1661  python maxent.py
+ 1662  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_test.arff -T yelp_maxent_training.arff
+ 1663  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1664  python maxent.py
+ 1665  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1666  python maxent.py
+ 1667  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1668  python maxent.py
+ 1669  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1670  python maxent.py
+ 1671  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1672  python maxent.py
+ 1673  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1674  python maxent.py
+ 1675  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1676  python maxent.py
+ 1677  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1678  python maxent.py
+ 1679  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1680  python maxent.py
+ 1681  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1682  python maxent.py
+ 1683  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1684  python maxent.py
+ 1685  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1686  python maxent.py
+ 1687  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1688  python maxent.py
+ 1689  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1690  python maxent.py
+ 1691  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1692  python maxent.py
+ 1693  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1694  python maxent.py
+ 1695  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1696  python maxent.py
+ 1697  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1698  python maxent.py
+ 1699  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1700  python naive_bayes.py
+ 1701  ls
+ 1702  python maxent.py
+ 1703  history
+ 1704  :q
+ 1705  python maxent.py
+ 1706  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t train_std.arff -T test_std.arff
+ 1707  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1708  sh normalize.sh
+ 1709  ls
+ 1710  sh normalize.sh
+ 1711  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t train_std.arff -T test_std.arff
+ 1712  python maxent.py
+ 1713  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1714  git add -A
+ 1715  git commit -m"Stupid simple feature selection"
+ 1716  ggpush
+ 1717  school
+ 1718  up
+ 1719  dup
+ 1720  sudo apt-get install haskell-platform
+ 1721  ghc
+ 1722  ghc -version
+ 1723  gch -v
+ 1724  gch --help
+ 1725  ghc --help
+ 1726  ls
+ 1727  sudo apt-get remove haskell-platform
+ 1728  ls
+ 1729  up
+ 1730  ls
+ 1731  cd Downloads
+ 1732  ls
+ 1733  sudo ./install-haskell-platform.sh
+ 1734  ghc
+ 1735  cabal
+ 1736  /usr/local/bin/cabal
+ 1737  which cabal
+ 1738  cabal
+ 1739  cabal --help
+ 1740  ls
+ 1741  sudo mv scala-2.11.7 /usr/local/share/scala
+ 1742  ls
+ 1743  sudo export SCALA_HOME="/usr/local/share/scala"
+ 1744  export SCALA_HOME="/usr/local/share/scala"
+ 1745  export PATH=$PATH:$SCALA_HOME/bin
+ 1746  scala
+ 1747  cd ..
+ 1748  ls
+ 1749  cd ~
+ 1750  cd idea-IC-143.1184.17
+ 1751  ls
+ 1752  cd bin
+ 1753  ./idea.sh
+ 1754  cd ~
+ 1755  ls
+ 1756  cd b52b
+ 1757  ls
+ 1758  gradle build
+ 1759  ls
+ 1760  cd ~/idea-IC-143.1184.17
+ 1761  cd bin
+ 1762  ;s
+ 1763  ls
+ 1764  ./idea.sh
+ 1765  cd ~/b5
+ 1766  cd ~/
+ 1767  ls
+ 1768  cd b52b
+ 1769  grade build
+ 1770  gralde build
+ 1771  gradle install
+ 1772  gradle build
+ 1773  ls
+ 1774  cd ScalaFun
+ 1775  ls
+ 1776  cd src
+ 1777  ls
+ 1778  touch hello.scala
+ 1779  ls
+ 1780  cd ..
+ 1781  ls
+ 1782  cd ..
+ 1783  ls
+ 1784  rm -rf ScalaFun
+ 1785  ls
+ 1786  scala
+ 1787  ls
+ 1788  scalac
+ 1789  which scala
+ 1790  cd Desktop/comp/comp150NLP/salmon
+ 1791  ls
+ 1792  python maxent.py
+ 1793  time python maxent.py
+ 1794  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1795  python naive_bayes.py
+ 1796  htop
+ 1797  python maxent.py
+ 1798  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1799  git add -A
+ 1800  git commit -m"Test unigrams naive bayes and maxent"
+ 1801  ggpush
+ 1802  python maxent.py
+ 1803  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1804  python maxent.py
+ 1805  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1806  python maxent.py
+ 1807  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1808  python maxent.py
+ 1809  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1810  python maxent.py
+ 1811  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1812  python maxent.py
+ 1813  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1814  python maxent.py
+ 1815  python maxent.py > out
+ 1816  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -r -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1817  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t -r yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1818  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -r -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1819  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1820  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1821  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -h
+ 1822  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1823  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 200 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1824  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 130 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1825  python maxent.py
+ 1826  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 130 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1827  python maxent.py
+ 1828  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 130 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1829  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1830  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1831  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 130 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1832  python naive_bayes.py
+ 1833  python maxent.py
+ 1834  python naive_bayes.py
+ 1835  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1836  git add -A
+ 1837  git commit -m"Ridge\n"
+ 1838  ggpush
+ 1839  python naive_bayes.py
+ 1840  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 80 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1841  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 50 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1842  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 60 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1843  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -C -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1844  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1845  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 40 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1846  python maxent.py
+ 1847  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1848  python maxent.py
+ 1849  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1850  python naive_bayes.py
+ 1851  python maxent.py
+ 1852  python naive_bayes.py
+ 1853  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1854  python naive_bayes.py
+ 1855  python maxent.py
+ 1856  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1857  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 60 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1858  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1859  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 69 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1860  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 80 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1861  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1862  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 130 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1863  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1864  pythoh maxent.py
+ 1865  python maxent.py
+ 1866  git add -A
+ 1867  git commit -m"Stopwords"
+ 1868  ggpush
+ 1869  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1870  python naive_bayes.py
+ 1871  python maxent.py
+ 1872  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1873  python maxent.py
+ 1874  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1875  python maxent.py
+ 1876  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 50 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1877  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 60 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1878  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 65 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1879  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 70 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1880  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1881  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1882  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1883  python maxent.py
+ 1884  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1885  python maxent.py
+ 1886  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1887  python maxent.py
+ 1888  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1889  python maxent.py
+ 1890  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1891  python maxent.py
+ 1892  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1893  python maxent.py
+ 1894  python naive_bayes.py
+ 1895  python maxent.py
+ 1896  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1897  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 70 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1898  python maxent.py
+ 1899  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 70 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1900  python maxent.py
+ 1901  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 70 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1902  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 75 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1903  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 76 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1904  git add -A
+ 1905  git commit -m"Better vocab building"
+ 1906  ggpush
+ 1907  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1908  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 85 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1909  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 80 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1910  python naive_bayes.py
+ 1911  git add -A
+ 1912  git commit -m"Adding stopwords"
+ 1913  ggpush
+ 1914  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1915  python maxent.py
+ 1916  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1917  htop
+ 1918  ggpull
+ 1919  up
+ 1920  dup
+ 1921  sudo apt-get auto-remove
+ 1922  sudo apt-get autoremove
+ 1923  ls
+ 1924  cd ~
+ 1925  ls
+ 1926  subl .zshrc
+ 1927  scala
+ 1928  which scala
+ 1929  print env
+ 1930  printenv
+ 1931  scala
+ 1932  echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+ 1933  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+ 1934  sudo apt-get update
+ 1935  dup
+ 1936  sudo apt-get install sbt
+ 1937  cd ~/idea-IC-143.1184.17
+ 1938  ls
+ 1939  cd bin
+ 1940  ls
+ 1941  ./idea.sh
+ 1942  which scala
+ 1943  scala
+ 1944  school
+ 1945  htop
+ 1946  cd Desktop/comp/comp150NLP/salmon
+ 1947  htop
+ 1948  git status
+ 1949  python maxent.py
+ 1950  git add -A
+ 1951  git commit -m"Larger maxent"
+ 1952  ggpush
+ 1953  ggpull
+ 1954  less reviews.json
+ 1955  cd ..
+ 1956  cd p4
+ 1957  ls
+ 1958  python pcfg.py
+ 1959  python naive_bayes.py
+ 1960  git status
+ 1961  ggpull
+ 1962  python maxent.py
+ 1963  history
+ 1964  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1965  git add -A
+ 1966  git commit -m"Maxent arb"
+ 1967  ggpull
+ 1968  python naive_bayes.py
+ 1969  ls
+ 1970  cd ..
+ 1971  ls
+ 1972  cd salmon
+ 1973  ls
+ 1974  git add -A
+ 1975  git commit -m"Merge"
+ 1976  ggpush
+ 1977  python maxent.py
+ 1978  python maxent.py > out
+ 1979  python maxent.py
+ 1980  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1981  python maxent.py
+ 1982  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1983  python maxent.py
+ 1984  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1985  python maxent.py
+ 1986  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1987  python maxent.py
+ 1988  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1989  python maxent.py
+ 1990  python maxent.py > out
+ 1991  python maxent.py
+ 1992  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1993  python maxent.py
+ 1994  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1995  python maxent.py
+ 1996  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 1997  htop
+ 1998  python maxent.py
+ 1999  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2000  python maxent.py
+ 2001  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2002  python maxent.py
+ 2003  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2004  git add -A
+ 2005  git commit -m"N-grams for maxent"
+ 2006  ggpush
+ 2007  ggpull
+ 2008  ggpush
+ 2009  htop
+ 2010  python maxent.py
+ 2011  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 78 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2012  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 80 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2013  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 85 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2014  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2015  python maxent.py
+ 2016  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2017  python maxent.py
+ 2018  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2019  python maxent.py
+ 2020  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2021  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 50 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2022  ggpull
+ 2023  htop
+ 2024  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2025  python maxent.py
+ 2026  java -Xmx9000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2027  htop
+ 2028  java -Xmx1000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2029  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2030  school
+ 2031  ls
+ 2032  school
+ 2033  cd Desktop/comp/comp150NLP/salmon
+ 2034  ls
+ 2035  scp reviews.json yelp_data.py maxent.py tpolla01@homework.tufts.cs.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2036  school
+ 2037  scp reviews.json yelp_data.py maxent.py tpolla01@homework.cs.tufts.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2038  ls
+ 2039  scp yelp_maxent_training.arff yelp_maxent_testing.arff tpolla01@homework.cs.tufts.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2040  scp yelp_maxent_training.arff yelp_maxent_test.arff tpolla01@homework.cs.tufts.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2041  python maxent.py
+ 2042  ls
+ 2043  school
+ 2044  top
+ 2045  school
+ 2046  ls
+ 2047  school
+ 2048  cd Desktop/comp/comp150NLP
+ 2049  cd salmon
+ 2050  ls
+ 2051  python maxent.py
+ 2052  ls
+ 2053  scp yelp_maxent_training.arff yelp_maxent_test.arff tpolla01@homework.cs.tufts.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2054  school
+ 2055  cd Desktop/comp/comp150NLP
+ 2056  cd salmon
+ 2057  git status
+ 2058  git add -A
+ 2059  git commit -m"Larger maxent with bigrams"
+ 2060  ggpush
+ 2061  ggpull
+ 2062  git add -A
+ 2063  git commit -m"Merged"
+ 2064  ggpush
+ 2065  school
+ 2066  up
+ 2067  dup
+ 2068  ls
+ 2069  school
+ 2070  cd Desktop/comp/comp150NLP
+ 2071  cd salmon
+ 2072  ls
+ 2073  python maxent.py
+ 2074  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2075  python maxent.py
+ 2076  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2077  python maxent.py
+ 2078  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2079  python maxent.py
+ 2080  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2081  python maxent.py
+ 2082  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2083  python maxent.py
+ 2084  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2085  htop
+ 2086* python maxent.py
+ 2087* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2088* python maxent.py
+ 2089* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2090* python maxent.py
+ 2091* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2092  ls
+ 2093  python maxent.py
+ 2094  python
+ 2095  python maxent.py
+ 2096  python
+ 2097  python maxent.py
+ 2098  python maxent.py > out
+ 2099  python maxent.py
+ 2100* htop
+ 2101  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2102  python maxent.py
+ 2103* htop
+ 2104* school
+ 2105  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2106  python maxent.py
+ 2107  python
+ 2108  python maxent.py
+ 2109  pip install -U nltk
+ 2110  python
+ 2111  python maxent.py
+ 2112  ./stanford-postagger.sh models/english-left3words-distsim.tagger sample-input.txt
+ 2113  ls
+ 2114  cd stanford-pos
+ 2115  ls
+ 2116  ./stanford-postagger.sh models/english-left3words-distsim.tagger sample-input.txt
+ 2117  cd ..
+ 2118  ls
+ 2119  python maxent.py
+ 2120  print env
+ 2121  env
+ 2122  python maxent.py
+ 2123  env
+ 2124  ./stanford-postagger.sh models/english-left3words-distsim.tagger sample-input.txt
+ 2125  cd stanford-pos
+ 2126  ./stanford-postagger.sh models/english-left3words-distsim.tagger sample-input.txt
+ 2127  cd ..
+ 2128  ls
+ 2129  python maxent.py
+ 2130  pwd
+ 2131  python maxent.py
+ 2132  export CLASSPATH='stanford-pos/stanford-postagger.jar:stanford-pos/lib/slf4j-api.jar'
+ 2133  printenv
+ 2134  python maxent.py
+ 2135  printenv
+ 2136  export CLASSPATH='stanford-pos/stanford-postagger.jar:stanford-pos/lib/*:'
+ 2137  python maxent.py
+ 2138  which java
+ 2139  python maxent.py
+ 2140  export CLASSPATH=''
+ 2141  python maxent.py
+ 2142  cd stanford-pos
+ 2143  ./stanford-postagger.sh models/english-left3words-distsim.tagger sample-input.txt
+ 2144  cd ..
+ 2145  ls
+ 2146  rm -rf stanford-pos
+ 2147  ls
+ 2148  rm out
+ 2149  sudo pip install spacy
+ 2150  sudo  python -m spacy.en.download --force all
+ 2151* school
+ 2152  head -3 reviews.json
+ 2153  python naive_bayes.py
+ 2154* htop
+ 2155  python naive_bayes.py
+ 2156  python parse_data.py 1 100000 ~/Desktop/yelp_data/data/yelp_academic_dataset_review.json
+ 2157  head -3 reviews.json
+ 2158  python naive_bayes.py
+ 2159  python naive_bayes.py > out
+ 2160  python naive_bayes.py
+ 2161* htop
+ 2162  python naive_bayes.py
+ 2163  git add -A
+ 2164  git commit -m"Adding Spacey Parsing and tokens"
+ 2165  rm out
+ 2166  ls
+ 2167  git add -A
+ 2168  git commit -m" Removing out file'\n'\n"
+ 2169  ggpush
+ 2170  python maxent.py
+ 2171* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2172* python maxent.py
+ 2173* python maxent.py > out
+ 2174* python maxent.py
+ 2175* school
+ 2176* python maxent.py
+ 2177* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2178* python naive_bayes.py
+ 2179  python maxent.py
+ 2180* python naive_bayes.py
+ 2181  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2182  python maxent.py
+ 2183* python naive_bayes.py
+ 2184  python maxent.py
+ 2185* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2186* python maxent.py
+ 2187* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2188* python maxent.py
+ 2189* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2190* python maxent.py
+ 2191* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2192* python maxent.py
+ 2193* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2194* python maxent.py
+ 2195* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2196* python maxent.py
+ 2197* history
+ 2198* python parse_data.py 1 100000 ~/Desktop/yelp_data/data/yelp_academic_dataset_review.json
+ 2199* python maxent.py
+ 2200  python naive_bayes.py
+ 2201* htop
+ 2202* python maxent.py
+ 2203* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2204  python naive_bayes.py
+ 2205* python maxent.py
+ 2206* python naive_bayes.py
+ 2207* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2208  python naive_bayes.py
+ 2209* python maxent.py
+ 2210  python naive_bayes.py
+ 2211* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2212* python naive_bayes.py
+ 2213* python maxent.py
+ 2214  python naive_bayes.py
+ 2215* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2216* school
+ 2217  python naive_bayes.py
+ 2218* python maxent.py
+ 2219  python naive_bayes.py
+ 2220* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2221  python naive_bayes.py
+ 2222* python maxent.py
+ 2223* git add -A
+ 2224* git commit -m"Remove 3 star reviews"
+ 2225* ggpush
+ 2226* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2227* python maxent.py
+ 2228* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2229* python maxent.py
+ 2230* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2231* python naive_bayes.py
+ 2232* python maxent.py
+ 2233* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2234* htop
+ 2235* python maxent.py
+ 2236* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2237* python maxent.py
+ 2238* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2239  python maxent.py > out
+ 2240  python maxent.py
+ 2241* rm out
+ 2242* ls
+ 2243* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2244* python maxent.py
+ 2245* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2246* git add -A
+ 2247* git commit -m"MaxEnt testing"
+ 2248* ggpush
+ 2249  htop
+ 2250* python maxent.py
+ 2251* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2252* school
+ 2253* python maxent.py
+ 2254* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2255* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff > out
+ 2256* python naive_bayes.py
+ 2257  python maxent.py
+ 2258* python naive_bayes.py
+ 2259  python maxent.py
+ 2260* python naive_bayes.py
+ 2261  python maxent.py
+ 2262  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff > out
+ 2263  python maxent.py
+ 2264* git add -A
+ 2265* git commit -m"Fixing max ent"
+ 2266* ggpush
+ 2267  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2268  python maxent.py
+ 2269  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2270  python maxent.py
+ 2271  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2272  python maxent.py
+ 2273  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2274* python maxent.py
+ 2275* htop
+ 2276  ls
+ 2277  history
+ 2278  scp yelp_maxent_training.arff yelp_maxent_test.arff tpolla01@homework.cs.tufts.edu:/h/tpolla01/Desktop/comp150NLP/salmon
+ 2279* school
+ 2280* python maxent.py
+ 2281  htop
+ 2282  python maxent.py
+ 2283* python maxent.py > out
+ 2284  python maxent.py
+ 2285* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2286* python maxent.py
+ 2287* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2288* python maxent.py
+ 2289* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2290* python maxent.py
+ 2291* java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2292* python naive_bayes.py
+ 2293  python maxent.py
+ 2294  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2295  python maxent.py
+ 2296* python naive_bayes.py
+ 2297  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2298* htop
+ 2299  python naive_bayes.py
+ 2300  python maxent.py
+ 2301  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2302  python maxent.py
+ 2303  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2304  python maxent.py
+ 2305  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2306  python maxent.py
+ 2307  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2308  python maxent.py
+ 2309  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2310  python maxent.py
+ 2311  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2312  python maxent.py
+ 2313  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2314* git add -A
+ 2315* git commit -m"PMI for feature selection"
+ 2316* ggpush
+ 2317  python maxent.py
+ 2318  java -Xmx10000m -cp $WEKA_INS/weka.jar weka.classifiers.functions.Logistic -R 100 -t yelp_maxent_training.arff -T yelp_maxent_test.arff
+ 2319  history
