@@ -1,8 +1,10 @@
 import json
 import sys
 from collections import defaultdict
+import spacy.en
 from sets import ImmutableSet
-
+STARS = 0
+TEXT = 1
 
 unknown_token = 'UNK'
 start_token   = '<S>'
@@ -15,7 +17,7 @@ def buildVocab(corpus):
     counts = defaultdict(int)
     vocab = set()
     for review in corpus:
-        for word in review['text']:
+        for word in review[TEXT]:
              counts[word] += 1
 
     for word, count in counts.iteritems():
@@ -32,8 +34,8 @@ def posVocabLen(vocab, corpus):
     used = set()
     length = 0
     for review in corpus:
-        if review['stars'] in positive:
-            for word in review['text']:
+        if review[STARS] in positive:
+            for word in review[TEXT]:
                 if word not in used:
                     used.add(word)
                     length += 1
@@ -44,8 +46,8 @@ def negVocabLen(vocab, corpus):
     used = set()
     length = 0
     for review in corpus:
-        if review['stars'] in negative:
-            for word in review['text']:
+        if review[STARS] in negative:
+            for word in review[TEXT]:
                 if word not in used:
                     used.add(word)
                     length += 1
@@ -53,9 +55,9 @@ def negVocabLen(vocab, corpus):
 
 def preProcess(corpus, vocab):
     for i, review in enumerate(corpus):
-        for j, word in enumerate(review['text']):
+        for j, word in enumerate(review[TEXT]):
             if word not in vocab:
-                corpus[i]['text'][j] = unknown_token
+                corpus[i][TEXT][j] = unknown_token
     return corpus
 
 def preProcessN(corpus, vocab, N):
@@ -63,14 +65,20 @@ def preProcessN(corpus, vocab, N):
     for review in processed:
 
         for i in range(N - 1):
-            review['text'].insert(0, start_token)
-            review['text'].append(end_token)
+            review[TEXT].insert(0, start_token)
+            review[TEXT].append(end_token)
 
     return processed
 
-def getReviews():
+def getReviewsTokenized():
+    nlp = spacy.en.English(parser=False, tagger=False, entity=False)
+    data = []
     with open("reviews.json", 'rb') as f:
-        return json.load(f)
+        reviews = json.load(f)
+        for review in reviews:
+            token = nlp(unicode(review['text']))
+            data.append([review['stars'], [tok.string for tok in token]])
+    return data
 
 def getStopWords():
     with open("stopwords.txt", 'rb') as f:

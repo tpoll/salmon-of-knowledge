@@ -1,11 +1,13 @@
 import yelp_data
 import operator
 import codecs
+import os
 from collections import defaultdict
 from collections import Counter
 from math import log
 from sets import ImmutableSet
 import json
+from nltk.tag.perceptron import PerceptronTagger
 
 unknown_token = 'UNK'
 positive_class = "positive"
@@ -21,9 +23,9 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if feature and  count > 25:
-                        self.features[feature] = counter
-                        counter += 1
+                if (N==2 and count > 8) or (N==3 and count > 20) or N==1:
+                    self.features[feature] = counter
+                    counter += 1
 
     def buildData(self, dataset, ngrams, nGram):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
@@ -67,6 +69,7 @@ class Ngrams(object):
 
     
     def Train(self, training_set, nGram=1):
+        tagger = PerceptronTagger()
         for N in range(1, nGram + 1):
 
             # get positive and negative counts
@@ -75,22 +78,28 @@ class Ngrams(object):
                     for i, word in enumerate(review['text'][nGram - N:]):
                         if word is not "</S>" and word is not "<S>":
                             gram = tuple(review['text'][i - N:i])
-                            self.counts[N][gram] += 1
+                            if gram:
+                                tagged =  tagger.tag(gram)
+                                print tagged
+                                # if tagged[0][1] == "JJ": 
+                                    # self.counts[N][gram] += 1
 
 def main():
+    # javapath = "stanford-pos/stanford-postagger.jar:stanford-pos/lib/slf4j-api.jar"
+    # os.environ['CLASSPATH'] = javapath 
     reviews = yelp_data.getReviews()
-    training_set = reviews[0:40000]
-    test_set     = reviews[40001:60000]
+    training_set = reviews[0:5000]
+    test_set     = reviews[5000:10000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     ngrams = Ngrams()
-    ngrams.Train(training_set_prep, 2)
+    ngrams.Train(training_set_prep, 1)
     stopwords = yelp_data.getStopWords()
     me = Maxent(vocab, stopwords)
-    me.buildFeatures(ngrams, 2)
-    me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", ngrams, 2)
-    me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", ngrams, 2)
+    me.buildFeatures(ngrams, 1)
+    me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", ngrams, 1)
+    me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", ngrams, 1)
 
 
 if __name__ == '__main__':
