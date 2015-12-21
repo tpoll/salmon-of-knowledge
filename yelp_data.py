@@ -77,7 +77,7 @@ def getReviewsTokenized():
         reviews = json.load(f)
         for review in reviews:
             token = nlp(unicode(review['text']))
-            data.append([review['stars'], [tok.string for tok in token if not (tok.string.isspace() or '"' in tok.string)]])
+            data.append([review['stars'], [tok.string.strip() for tok in token if not (tok.string.isspace() or '"' in tok.string)]])
     return data
 
 def getStopWords():

@@ -2,6 +2,8 @@ import yelp_data
 import operator
 import codecs
 import os
+import operator
+import nltk
 from collections import defaultdict
 from collections import Counter
 from math import log
@@ -15,9 +17,8 @@ STARS = 0
 TEXT = 1
 
 class Maxent(object):
-    def __init__(self, vocab, stopwords):
+    def __init__(self, vocab):
         self.vocab    = vocab
-        self.stopwords = stopwords
         self.features = {}
 
     def buildFeatures(self, ngrams, N):
@@ -77,20 +78,41 @@ class Ngrams(object):
                             gram = tuple(review[TEXT][i - N:i])
                             if gram:
                                 self.counts[N][gram] += 1
+    def CalculateNgramPMI(self, k, N):
+        nSum = sum([self.counts[N][x] for x in self.counts[N]])
+        unSum = sum([self.counts[1][x] for x in self.counts[1]])
+
+        wordProbs = {x[0]: float(self.counts[1][x]) / unSum for x in self.counts[1]} # word probabilities(w1 and w2)
+        jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 10 } # joint probabilites (w1&w2)
+
+        probs = {}
+
+        for nGram, jProb in jointProbs.iteritems():
+            indvSum = 1.0
+            for i in range(0, N):
+                indvSum *= float(wordProbs[nGram[i]])
+            probs[nGram] = log((jProb / indvSum), 2)
+        topK = sorted(probs.iteritems(), key=operator.itemgetter(1), reverse=True)[:k]
+
+        self.counts[N] = {key[0]: self.counts[N][key[0]] for key in topK} # Replace Bigrams with high information features
 
 
 def main():
-    N = 2
+    N = 3
     reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:1000]
-    test_set     = reviews[1001:2000]
+    training_set = reviews[0:3000]
+    test_set     = reviews[3001:6000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
+    
     ngrams = Ngrams()
     ngrams.Train(training_set_prep, N)
-    stopwords = yelp_data.getStopWords()
-    me = Maxent(vocab, stopwords)
+    ngrams.CalculateNgramPMI(600, 2)
+    ngrams.CalculateNgramPMI(100, 3)
+
+    
+    me = Maxent(vocab)
     me.buildFeatures(ngrams, N)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", N)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", N)
