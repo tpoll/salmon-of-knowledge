@@ -24,14 +24,14 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (N==2 and count > 1) or (N==3 and count > 1) or N==1:
+                if (N==2 and count > 8) or (N==3 and count > 10) or N==1:
                     self.features[feature] = counter
                     counter += 1
 
-    def buildData(self, dataset, ngrams, nGram):
+    def buildData(self, dataset, nGram):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
         for i, sent in enumerate(dataset):
-            for N in range(nGram + 1):
+            for N in range(1, nGram + 1):
                 for j, word in enumerate(sent[TEXT][nGram - N:]):
                     if word is not "</S>" and word is not "<S>":
                         gram = tuple(sent[TEXT][j - N:j])
@@ -45,7 +45,7 @@ class Maxent(object):
         else:
             return str(len(self.features)) + " negative"
 
-    def buildARFFfile(self, dataset, filename, ngrams, nGram):
+    def buildARFFfile(self, dataset, filename, nGram):
         num_features = len(self.features)
         with codecs.open(filename, 'wb', encoding='utf-8') as f:
             f.write("@relation maxent\n\n")
@@ -55,7 +55,7 @@ class Maxent(object):
                 f.write("@attribute \"" + ' '.join(feature[0]) + "\" NUMERIC\n")
             f.write("@attribute __sentiment__ {positive, negative}\n\n")
             f.write("@data\n")
-            dataMatrix = self.buildData(dataset, ngrams, nGram)
+            dataMatrix = self.buildData(dataset, nGram)
 
             for i, sent in enumerate(dataMatrix):
                 f.write("{")
@@ -80,19 +80,20 @@ class Ngrams(object):
 
 
 def main():
+    N = 2
     reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:8000]
-    test_set     = reviews[8001:16000]
+    training_set = reviews[0:1000]
+    test_set     = reviews[1001:2000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     ngrams = Ngrams()
-    ngrams.Train(training_set_prep, 2)
+    ngrams.Train(training_set_prep, N)
     stopwords = yelp_data.getStopWords()
     me = Maxent(vocab, stopwords)
-    me.buildFeatures(ngrams, 2)
-    me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", ngrams, 1)
-    me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", ngrams, 1)
+    me.buildFeatures(ngrams, N)
+    me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", N)
+    me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", N)
 
 
 if __name__ == '__main__':

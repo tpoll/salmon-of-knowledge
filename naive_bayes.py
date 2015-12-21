@@ -70,10 +70,10 @@ class NaiveBayes(object):
 def main():
 
 
-    maxN = 3
+    maxN = 4
     reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10000]
+    training_set = reviews[0:9000]
+    test_set     = reviews[9001:18000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
