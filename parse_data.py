@@ -7,9 +7,14 @@ def main():
     data = []
     new = open("reviews.json", "wb")
     with open(sys.argv[3], 'rb') as f:
-        for x in xrange(int(sys.argv[1]),int(sys.argv[2])):
+        count = int(sys.argv[1])
+        upper = int(sys.argv[2])
+        while count < upper:
             review  = json.loads(f.readline())
+            if review["stars"] == 3:
+                continue
             data.append({'text': review["text"], 'stars': review["stars"]})
+            count += 1
 
 
     json.dump(data, new)

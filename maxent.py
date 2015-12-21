@@ -7,11 +7,12 @@ from collections import Counter
 from math import log
 from sets import ImmutableSet
 import json
-from nltk.tag.perceptron import PerceptronTagger
 
 unknown_token = 'UNK'
 positive_class = "positive"
 negative_class = "negative"
+STARS = 0
+TEXT = 1
 
 class Maxent(object):
     def __init__(self, vocab, stopwords):
@@ -23,7 +24,7 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (N==2 and count > 8) or (N==3 and count > 20) or N==1:
+                if (N==2 and count > 8) or (N==3 and count > 8) or N==1:
                     self.features[feature] = counter
                     counter += 1
 
@@ -31,15 +32,15 @@ class Maxent(object):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
         for i, sent in enumerate(dataset):
             for N in range(nGram + 1):
-                for j, word in enumerate(sent['text'][nGram - N:]):
+                for j, word in enumerate(sent[TEXT][nGram - N:]):
                     if word is not "</S>" and word is not "<S>":
-                        gram = tuple(sent['text'][j - N:j])
+                        gram = tuple(sent[TEXT][j - N:j])
                         if gram in self.features:
                             matrix[i][self.features[gram]] += 1
         return matrix
 
     def getSentiment(self, sentence):
-        if sentence["stars"] >= 4:
+        if sentence[STARS] >= 4:
             return str(len(self.features)) + " positive"
         else:
             return str(len(self.features)) + " negative"
@@ -69,35 +70,26 @@ class Ngrams(object):
 
     
     def Train(self, training_set, nGram=1):
-        tagger = PerceptronTagger()
         for N in range(1, nGram + 1):
-
-            # get positive and negative counts
-            # for each word using review ratings.
             for review in training_set:
-                    for i, word in enumerate(review['text'][nGram - N:]):
+                    for i, word in enumerate(review[TEXT][nGram - N:]):
                         if word is not "</S>" and word is not "<S>":
-                            gram = tuple(review['text'][i - N:i])
+                            gram = tuple(review[TEXT][i - N:i])
                             if gram:
-                                tagged =  tagger.tag(gram)
-                                print tagged
-                                # if tagged[0][1] == "JJ": 
-                                    # self.counts[N][gram] += 1
+                                self.counts[N][gram] += 1
 
 def main():
-    # javapath = "stanford-pos/stanford-postagger.jar:stanford-pos/lib/slf4j-api.jar"
-    # os.environ['CLASSPATH'] = javapath 
-    reviews = yelp_data.getReviews()
-    training_set = reviews[0:5000]
-    test_set     = reviews[5000:10000]
+    reviews = yelp_data.getReviewsTokenized()
+    training_set = reviews[0:2000]
+    test_set     = reviews[2001:4000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     ngrams = Ngrams()
-    ngrams.Train(training_set_prep, 1)
+    ngrams.Train(training_set_prep, 3)
     stopwords = yelp_data.getStopWords()
     me = Maxent(vocab, stopwords)
-    me.buildFeatures(ngrams, 1)
+    me.buildFeatures(ngrams, 3)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", ngrams, 1)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", ngrams, 1)
 

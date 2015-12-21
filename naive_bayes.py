@@ -11,7 +11,7 @@ class NaiveBayes(object):
     def __init__(self, vocab, stopwords):
         self.stopwords = stopwords
         self.positive = ImmutableSet([4, 5])
-        self.negative = ImmutableSet([1, 2, 3])
+        self.negative = ImmutableSet([1, 2])
         self.vocab = vocab
     
     def Train(self, training_set, N=1):
@@ -70,10 +70,10 @@ class NaiveBayes(object):
 def main():
 
 
-    maxN = 2
+    maxN = 1
     reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:75000]
-    test_set     = reviews[75001:100000]
+    training_set = reviews[0:2000]
+    test_set     = reviews[2001:4000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcessN(training_set, vocab, maxN)
     test_set_prep = yelp_data.preProcessN(test_set, vocab, maxN)
