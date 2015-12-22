@@ -9,23 +9,32 @@ from collections import Counter
 from math import log
 from sets import ImmutableSet
 import json
+import spacy.en
+from sets import ImmutableSet
+
+
 
 unknown_token = 'UNK'
 positive_class = "positive"
 negative_class = "negative"
 STARS = 0
 TEXT = 1
+TAG = 2
+DEP = 3
 
 class Maxent(object):
-    def __init__(self, vocab):
+    def __init__(self, vocab, nlp):
         self.vocab    = vocab
         self.features = {}
+        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
+                            nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
+                            nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
 
     def buildFeatures(self, ngrams, N):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (N==2 and count > 8) or (N==3 and count > 10) or N==1:
+                if (N==2 and count > 8) or (N==3 and count > 10) or (N==1 and ngrams.tags[feature][0] in self.PosGrams):
                     self.features[feature] = counter
                     counter += 1
 
@@ -66,9 +75,16 @@ class Maxent(object):
 
 class Ngrams(object):
     """NaiveBayes for sentiment analysis"""
-    def __init__(self):
+    def __init__(self, nlp):
         self.counts = defaultdict(lambda: defaultdict(int))
-
+        self.tags = {}
+        self.Verbs = ImmutableSet([nlp.vocab.strings['VB'], nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP']])
+        self.Adj = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS']])
+        self.Nouns = ImmutableSet([nlp.vocab.strings['NN']])
+        self.Adverbs = ImmutableSet([nlp.vocab.strings['RB'], nlp.vocab.strings['RBR'], nlp.vocab.strings['RBS']])
+        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
+                            nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
+                            nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
     
     def Train(self, training_set, nGram=1):
         for N in range(1, nGram + 1):
@@ -77,7 +93,11 @@ class Ngrams(object):
                         if word is not "</S>" and word is not "<S>":
                             gram = tuple(review[TEXT][i - N:i])
                             if gram:
+                                self.tags[gram] = review[TAG][i - N:i]
                                 self.counts[N][gram] += 1
+
+
+    #Calculate Pointwise Mutual information of N-grams
     def CalculateNgramPMI(self, k, N):
         nSum = sum([self.counts[N][x] for x in self.counts[N]])
         unSum = sum([self.counts[1][x] for x in self.counts[1]])
@@ -92,27 +112,38 @@ class Ngrams(object):
             for i in range(0, N):
                 indvSum *= float(wordProbs[nGram[i]])
             probs[nGram] = log((jProb / indvSum), 2)
-        topK = sorted(probs.iteritems(), key=operator.itemgetter(1), reverse=True)[:k]
 
-        self.counts[N] = {key[0]: self.counts[N][key[0]] for key in topK} # Replace Bigrams with high information features
+        topK = sorted(probs.iteritems(), key=operator.itemgetter(1), reverse=True)
+        newK = []
+
+        for gram in topK:
+            if all([self.tags[gram[0]][i] in self.PosGrams for i in range(0,N)]):
+                if all([self.tags[gram[0]][i] not in self.Nouns for i in range(0,N)]):
+                    newK.append(gram)
+
+        newK = newK[0:k]
+        self.counts[N] = {key[0]: self.counts[N][key[0]] for key in newK} # Replace nGrams with high information features
+
+
 
 
 def main():
-    N = 3
-    reviews = yelp_data.getReviewsTokenized()
-    training_set = reviews[0:3000]
-    test_set     = reviews[3001:6000]
+    N = 1
+    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(2000)
+    training_set = reviews[0:1000]
+    test_set     = reviews[1001:2000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
-    
-    ngrams = Ngrams()
-    ngrams.Train(training_set_prep, N)
-    ngrams.CalculateNgramPMI(600, 2)
-    ngrams.CalculateNgramPMI(100, 3)
+
 
     
-    me = Maxent(vocab)
+    ngrams = Ngrams(nlp)
+    ngrams.Train(training_set_prep, N)
+    # ngrams.CalculateNgramPMI(700, 2)
+
+    
+    me = Maxent(vocab, nlp)
     me.buildFeatures(ngrams, N)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", N)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", N)
