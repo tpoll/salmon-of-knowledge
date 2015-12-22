@@ -1,0 +1,34 @@
+{
+	"tests": [
+		{
+			"id": "1",
+			"name": "N-gram testing with backoff",
+			"entries": [
+				{
+					"training": {"start": 0,"end": 30000},
+					"test": {"start": 30001,"end": 31001},
+					"backoff": true,
+					"N": 1
+				},
+				{
+					"training": {"start": 0,"end": 30000},
+					"test": {"start": 30001,"end": 31001},
+					"backoff": true,
+					"N": 2
+				},
+				{
+					"training": {"start": 0,"end": 30000},
+					"test": {"start": 30001,"end": 31001},
+					"backoff": true,
+					"N": 3
+				},
+				{
+					"training": {"start": 0,"end": 30000},
+					"test": {"start": 30001,"end": 31001},
+					"backoff": true,
+					"N": 4
+				}
+			]
+		}
+	]
+}

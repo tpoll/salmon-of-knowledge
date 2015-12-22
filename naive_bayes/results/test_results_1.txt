@@ -1,0 +1,39 @@
+N-gram testing with backoff
+------------------------
+
+1-gram model with Stupid Backoff
+training indices 0 to 30000
+test indices 30001 to 31001
+Results:
+Classificaiton Accuracy: 86.0 %
+Negative Reviews Tagged as Positive: 65.0 (6.5 %)
+Positive Reviews Tagged as Negative: 75.0 (7.5 %)
+------------------------
+
+2-gram model with Stupid Backoff
+training indices 0 to 30000
+test indices 30001 to 31001
+Results:
+Classificaiton Accuracy: 87.6 %
+Negative Reviews Tagged as Positive: 44.0 (4.4 %)
+Positive Reviews Tagged as Negative: 80.0 (8.0 %)
+------------------------
+
+3-gram model with Stupid Backoff
+training indices 0 to 30000
+test indices 30001 to 31001
+Results:
+Classificaiton Accuracy: 87.2 %
+Negative Reviews Tagged as Positive: 34.0 (3.4 %)
+Positive Reviews Tagged as Negative: 94.0 (9.4 %)
+------------------------
+
+4-gram model with Stupid Backoff
+training indices 0 to 30000
+test indices 30001 to 31001
+Results:
+Classificaiton Accuracy: 86.3 %
+Negative Reviews Tagged as Positive: 33.0 (3.3 %)
+Positive Reviews Tagged as Negative: 104.0 (10.4 %)
+------------------------
+
