@@ -38,12 +38,12 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (i==2) or (i==3) or (i==1 and ngrams.tags[feature][0] in self.PosGrams):
+                if (i==2) or (i==3) or (i==1 and count > 10 and  ngrams.tags[feature][0] in self.PosGrams):
                     self.features[feature] = counter
                     counter += 1
 
         for feature, count in self.chunks.iteritems():
-            if count > 7 and len(feature) > 1 and feature not in self.features:
+            if count > 4 and len(feature) > 1 and feature not in self.features:
                 self.features[feature] = counter
                 counter += 1
 
@@ -152,8 +152,8 @@ def main():
     
     ngrams = Ngrams(nlp)
     ngrams.Train(training_set_prep, N)
-    ngrams.CalculateNgramPMI(700, 2)
-    ngrams.CalculateNgramPMI(700, 3)
+    ngrams.CalculateNgramPMI(1200, 2)
+    ngrams.CalculateNgramPMI(1200, 3)
 
 
     
