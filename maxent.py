@@ -26,13 +26,13 @@ class Maxent(object):
     def __init__(self, vocab, nlp):
         self.vocab    = vocab
         self.features = {}
+        self.chunks = defaultdict(int)
         self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
                             nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
                             nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
 
 
     def buildChunks(self, dataset):
-        self.chunks = defaultdict(int)
         for review in dataset:
             for chunk in review[CHUNK]:
                 self.chunks[chunk] += 1
@@ -44,8 +44,9 @@ class Maxent(object):
                 if (N==2 and count > 8) or (N==3 and count > 10) or (N==1 and ngrams.tags[feature][0] in self.PosGrams):
                     self.features[feature] = counter
                     counter += 1
+
         for feature, count in self.chunks.iteritems():
-            if count > 2:
+            if count > 2 and feature not in self.features:
                 self.features[feature] = counter
                 counter += 1
 
@@ -58,6 +59,11 @@ class Maxent(object):
                         gram = tuple(sent[TEXT][j - N:j])
                         if gram in self.features:
                             matrix[i][self.features[gram]] += 1
+            
+            for chunk in sent[CHUNK]:
+                if chunk in self.features:
+                    matrix[i][self.features[chunk]] += 1
+        
         return matrix
 
     def getSentiment(self, sentence):
@@ -139,10 +145,10 @@ class Ngrams(object):
 
 
 def main():
-    N = 1
-    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(2000)
-    training_set = reviews[0:1000]
-    test_set     = reviews[1001:2000]
+    N = 2
+    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(10000)
+    training_set = reviews[0:5000]
+    test_set     = reviews[5001:10000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
@@ -151,7 +157,7 @@ def main():
     
     ngrams = Ngrams(nlp)
     ngrams.Train(training_set_prep, N)
-    # ngrams.CalculateNgramPMI(700, 2)
+    ngrams.CalculateNgramPMI(300, 2)
 
     
     me = Maxent(vocab, nlp)

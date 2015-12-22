@@ -2,7 +2,7 @@ import json
 import sys
 from collections import defaultdict
 import spacy.en
-from spacy.symbols import dobj, nsubj, conj, acomp, advmod, xcomp
+from spacy.symbols import dobj, nsubj, conj, acomp, advmod, xcomp, cc
 from sets import ImmutableSet
 STARS = 0
 TEXT = 1
@@ -89,23 +89,23 @@ def getReviewsTokenizedandTagged(size):
         for review in reviews[:size]:
             token = nlp(unicode(review['text']))
 
-            data.append([review['stars'], [tok.string.strip() for tok in token if not (tok.string.isspace() or '"' in tok.string)], 
-                tuple([tok.tag for tok in token if not (tok.string.isspace() or '"' in tok.string)]), getDependencyLabels(token, nlp)])
+            data.append([review['stars'], [tok.string.replace('\n','').strip() for tok in token if not (tok.string.isspace() or '"' in tok.string)], 
+                tuple([tok.tag for tok in token if not (tok.string.isspace() or '"' in tok.string)]), getChunksFromTree(token, nlp)])
     return (data, nlp)
 
 def getStopWords():
     with open("stopwords.txt", 'rb') as f:
         return set([x.strip('\n') for x in f.readlines()])
 
-def getDependencyLabels(token, nlp):
-    # print "REVIW------------------------------"
-    # print ''.join([tok.string for tok in token])
+def getChunksFromTree(token, nlp):
     chunks = []
     np_labels = set([acomp, conj, dobj, xcomp])
+    
     for word in token:
         if word.dep in np_labels:
-            bag = [word.head.string]
+            bag = [word.head.string.replace('\n','').strip()]
             for tok in word.subtree:
-                bag.append(tok.string)
+                if not tok.string.isspace()  or '"' in tok.string:
+                    bag.append(tok.string.replace('\n','').strip())
             chunks.append(tuple(bag))
     return chunks
