@@ -12,8 +12,6 @@ import json
 import spacy.en
 from sets import ImmutableSet
 
-
-
 unknown_token = 'UNK'
 positive_class = "positive"
 negative_class = "negative"
@@ -27,10 +25,9 @@ class Maxent(object):
         self.vocab    = vocab
         self.features = {}
         self.chunks = defaultdict(int)
-        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
+        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
                             nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
-                            nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
-
+                            nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP']])
 
     def buildChunks(self, dataset):
         for review in dataset:
@@ -41,17 +38,18 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (N==2 and count > 8) or (N==3 and count > 10) or (N==1 and ngrams.tags[feature][0] in self.PosGrams):
+                if (i==2) or (i==3) or (i==1 and ngrams.tags[feature][0] in self.PosGrams):
                     self.features[feature] = counter
                     counter += 1
 
         for feature, count in self.chunks.iteritems():
-            if count > 2 and feature not in self.features:
+            if count > 7 and len(feature) > 1 and feature not in self.features:
                 self.features[feature] = counter
                 counter += 1
 
     def buildData(self, dataset, nGram):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
+
         for i, sent in enumerate(dataset):
             for N in range(1, nGram + 1):
                 for j, word in enumerate(sent[TEXT][nGram - N:]):
@@ -74,6 +72,7 @@ class Maxent(object):
 
     def buildARFFfile(self, dataset, filename, nGram):
         num_features = len(self.features)
+
         with codecs.open(filename, 'wb', encoding='utf-8') as f:
             f.write("@relation maxent\n\n")
             features = sorted(self.features.items(), key=operator.itemgetter(1))
@@ -82,6 +81,7 @@ class Maxent(object):
                 f.write("@attribute \"" + ' '.join(feature[0]) + "\" NUMERIC\n")
             f.write("@attribute __sentiment__ {positive, negative}\n\n")
             f.write("@data\n")
+
             dataMatrix = self.buildData(dataset, nGram)
 
             for i, sent in enumerate(dataMatrix):
@@ -113,14 +113,13 @@ class Ngrams(object):
                                 self.tags[gram] = review[TAG][i - N:i]
                                 self.counts[N][gram] += 1
 
-
     #Calculate Pointwise Mutual information of N-grams
     def CalculateNgramPMI(self, k, N):
         nSum = sum([self.counts[N][x] for x in self.counts[N]])
         unSum = sum([self.counts[1][x] for x in self.counts[1]])
 
         wordProbs = {x[0]: float(self.counts[1][x]) / unSum for x in self.counts[1]} # word probabilities(w1 and w2)
-        jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 10 } # joint probabilites (w1&w2)
+        jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 15 } # joint probabilites (w1&w2)
 
         probs = {}
 
@@ -142,22 +141,20 @@ class Ngrams(object):
         self.counts[N] = {key[0]: self.counts[N][key[0]] for key in newK} # Replace nGrams with high information features
 
 
-
-
 def main():
-    N = 2
-    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(10000)
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10000]
+    N = 3
+    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(30000)
+    training_set = reviews[0:15000]
+    test_set     = reviews[15001:30000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
-
-
     
     ngrams = Ngrams(nlp)
     ngrams.Train(training_set_prep, N)
-    ngrams.CalculateNgramPMI(300, 2)
+    ngrams.CalculateNgramPMI(700, 2)
+    ngrams.CalculateNgramPMI(700, 3)
+
 
     
     me = Maxent(vocab, nlp)
