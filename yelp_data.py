@@ -103,9 +103,9 @@ def getChunksFromTree(token, nlp):
     
     for word in token:
         if word.dep in np_labels:
-            bag = [word.head.string.replace('\n','').strip()]
+            bag = [word.head.string.replace('\n','').strip().replace('"', '')]
             for tok in word.subtree:
                 if not tok.string.isspace()  or '"' in tok.string:
-                    bag.append(tok.string.replace('\n','').strip())
+                    bag.append(tok.string.replace('\n','').strip().replace('"', ''))
             chunks.append(tuple(bag))
     return chunks
