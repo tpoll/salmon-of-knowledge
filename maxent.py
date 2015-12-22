@@ -25,7 +25,7 @@ class Maxent(object):
         self.vocab    = vocab
         self.features = {}
         self.chunks = defaultdict(int)
-        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
+        self.AcceptedPOSTags = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
                             nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
                             nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP']])
 
@@ -38,7 +38,7 @@ class Maxent(object):
         counter = 0
         for i in range(1, N + 1):
             for feature, count in ngrams.counts[i].iteritems():
-                if (i==2) or (i==3) or (i==1 and count > 10 and  ngrams.tags[feature][0] in self.PosGrams):
+                if (i==2) or (i==3) or (i==1 and ngrams.tags[feature][0] in self.AcceptedPOSTags):
                     self.features[feature] = counter
                     counter += 1
 
@@ -99,7 +99,7 @@ class Ngrams(object):
         self.Adj = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS']])
         self.Nouns = ImmutableSet([nlp.vocab.strings['NN']])
         self.Adverbs = ImmutableSet([nlp.vocab.strings['RB'], nlp.vocab.strings['RBR'], nlp.vocab.strings['RBS']])
-        self.PosGrams = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
+        self.AcceptedPOSTags = ImmutableSet([nlp.vocab.strings['JJ'], nlp.vocab.strings['NN'], nlp.vocab.strings['VB'], nlp.vocab.strings['RB'], 
                             nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
                             nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
     
@@ -118,8 +118,8 @@ class Ngrams(object):
         nSum = sum([self.counts[N][x] for x in self.counts[N]])
         unSum = sum([self.counts[1][x] for x in self.counts[1]])
 
-        wordProbs = {x[0]: float(self.counts[1][x]) / unSum for x in self.counts[1]} # word probabilities(w1 and w2)
-        jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 15 } # joint probabilites (w1&w2)
+        wordProbs = {x[0]: float(self.counts[1][x]) / unSum for x in self.counts[1]} # word probabilities
+        jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 15 } # joint probabilites
 
         probs = {}
 
@@ -133,7 +133,7 @@ class Ngrams(object):
         newK = []
 
         for gram in topK:
-            if all([self.tags[gram[0]][i] in self.PosGrams for i in range(0,N)]):
+            if all([self.tags[gram[0]][i] in self.AcceptedPOSTags for i in range(0,N)]):
                 if all([self.tags[gram[0]][i] not in self.Nouns for i in range(0,N)]):
                     newK.append(gram)
 
@@ -143,17 +143,17 @@ class Ngrams(object):
 
 def main():
     N = 3
-    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(30000)
-    training_set = reviews[0:15000]
-    test_set     = reviews[15001:30000]
+    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(10000)
+    training_set = reviews[0:5000]
+    test_set     = reviews[5001:10000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     
     ngrams = Ngrams(nlp)
     ngrams.Train(training_set_prep, N)
-    ngrams.CalculateNgramPMI(1200, 2)
-    ngrams.CalculateNgramPMI(1200, 3)
+    ngrams.CalculateNgramPMI(1500, 2) #Select the k POS bigrams with the highest PMI
+    ngrams.CalculateNgramPMI(1500, 3) #Select the k POS trigrams with the highest PMI
 
 
     
