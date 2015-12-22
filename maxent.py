@@ -20,7 +20,7 @@ negative_class = "negative"
 STARS = 0
 TEXT = 1
 TAG = 2
-DEP = 3
+CHUNK = 3
 
 class Maxent(object):
     def __init__(self, vocab, nlp):
@@ -30,6 +30,13 @@ class Maxent(object):
                             nlp.vocab.strings['RBR'], nlp.vocab.strings['JJR'], nlp.vocab.strings['JJS'], nlp.vocab.strings['RBS'],
                             nlp.vocab.strings['VBN'], nlp.vocab.strings['VBD'], nlp.vocab.strings['VBP'] ])
 
+
+    def buildChunks(self, dataset):
+        self.chunks = defaultdict(int)
+        for review in dataset:
+            for chunk in review[CHUNK]:
+                self.chunks[chunk] += 1
+
     def buildFeatures(self, ngrams, N):
         counter = 0
         for i in range(1, N + 1):
@@ -37,6 +44,10 @@ class Maxent(object):
                 if (N==2 and count > 8) or (N==3 and count > 10) or (N==1 and ngrams.tags[feature][0] in self.PosGrams):
                     self.features[feature] = counter
                     counter += 1
+        for feature, count in self.chunks.iteritems():
+            if count > 2:
+                self.features[feature] = counter
+                counter += 1
 
     def buildData(self, dataset, nGram):
         matrix = [defaultdict(int) for x in xrange(len(dataset))]
@@ -144,6 +155,7 @@ def main():
 
     
     me = Maxent(vocab, nlp)
+    me.buildChunks(training_set_prep)
     me.buildFeatures(ngrams, N)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", N)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", N)

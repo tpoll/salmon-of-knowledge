@@ -2,7 +2,7 @@ import json
 import sys
 from collections import defaultdict
 import spacy.en
-from spacy.symbols import dobj, nsubj, conj, acomp, advmod
+from spacy.symbols import dobj, nsubj, conj, acomp, advmod, xcomp
 from sets import ImmutableSet
 STARS = 0
 TEXT = 1
@@ -101,11 +101,11 @@ def getDependencyLabels(token, nlp):
     # print "REVIW------------------------------"
     # print ''.join([tok.string for tok in token])
     chunks = []
-    np_labels = set([advmod, acomp, conj, dobj])
+    np_labels = set([acomp, conj, dobj, xcomp])
     for word in token:
         if word.dep in np_labels:
             bag = [word.head.string]
             for tok in word.subtree:
                 bag.append(tok.string)
-            chunks.append(bag)
+            chunks.append(tuple(bag))
     return chunks
