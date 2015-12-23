@@ -144,7 +144,7 @@ class Ngrams(object):
 def main():
     N = 3
     (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(1000)
-    training_set = reviews[0:800]
+    training_set = reviews[0:900]
     test_set     = reviews[900:1000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
