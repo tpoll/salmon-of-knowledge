@@ -12,7 +12,7 @@ start_token   = '<S>'
 end_token     = '</S>'
 dont_include = set([",", "\n"])
 positive = ImmutableSet([4, 5])
-negative = ImmutableSet([1, 2, 3])
+negative = ImmutableSet([1, 2])
 
 def buildVocab(corpus):
     counts = defaultdict(int)
@@ -92,10 +92,6 @@ def getReviewsTokenizedandTagged(size):
             data.append([review['stars'], [tok.string.replace('\n','').strip() for tok in token if not (tok.string.isspace() or '"' in tok.string)], 
                 tuple([tok.tag for tok in token if not (tok.string.isspace() or '"' in tok.string)]), getChunksFromTree(token, nlp)])
     return (data, nlp)
-
-def getStopWords():
-    with open("stopwords.txt", 'rb') as f:
-        return set([x.strip('\n') for x in f.readlines()])
 
 def getChunksFromTree(token, nlp):
     chunks = []

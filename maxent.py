@@ -43,7 +43,7 @@ class Maxent(object):
                     counter += 1
 
         for feature, count in self.chunks.iteritems():
-            if count > 4 and len(feature) > 1 and feature not in self.features:
+            if count > 5 and len(feature) > 1 and feature not in self.features:
                 self.features[feature] = counter
                 counter += 1
 
@@ -121,7 +121,7 @@ class Ngrams(object):
         wordProbs = {x[0]: float(self.counts[1][x]) / unSum for x in self.counts[1]} # word probabilities
         jointProbs = {x: float(self.counts[N][x]) / nSum for x in self.counts[N] if self.counts[N][x] > 15 } # joint probabilites
 
-        probs = {}
+        probs = {} # PMI of N-grams
 
         for nGram, jProb in jointProbs.iteritems():
             indvSum = 1.0
@@ -143,22 +143,22 @@ class Ngrams(object):
 
 def main():
     N = 3
-    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(10000)
-    training_set = reviews[0:5000]
-    test_set     = reviews[5001:10000]
+    (reviews, nlp) = yelp_data.getReviewsTokenizedandTagged(1000)
+    training_set = reviews[0:800]
+    test_set     = reviews[900:1000]
     vocab = yelp_data.buildVocab(training_set)
     training_set_prep = yelp_data.preProcess(training_set, vocab)
     test_set_prep = yelp_data.preProcess(test_set, vocab)
     
     ngrams = Ngrams(nlp)
     ngrams.Train(training_set_prep, N)
-    ngrams.CalculateNgramPMI(1500, 2) #Select the k POS bigrams with the highest PMI
-    ngrams.CalculateNgramPMI(1500, 3) #Select the k POS trigrams with the highest PMI
+    ngrams.CalculateNgramPMI(2800, 2) #Select the k POS bigrams with the highest PMI
+    ngrams.CalculateNgramPMI(2800, 3) #Select the k POS trigrams with the highest PMI
 
 
     
     me = Maxent(vocab, nlp)
-    me.buildChunks(training_set_prep)
+    me.buildChunks(training_set_prep) 
     me.buildFeatures(ngrams, N)
     me.buildARFFfile(training_set_prep, "yelp_maxent_training.arff", N)
     me.buildARFFfile(test_set_prep, "yelp_maxent_test.arff", N)
